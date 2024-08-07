@@ -27,7 +27,10 @@ const SignupScreen = () => {
       </div>
       <div className="py-5  w-full max-w-sm  min-h-screen mx-auto">
         <div className="flex items-center justify-center">
-          <Logo />
+          <Link href="/">
+            {" "}
+            <Logo />
+          </Link>
         </div>
         <form onSubmit={handleSubmit((data) => console.log(data))} className="mt-6 ">
           <div className="text-center">

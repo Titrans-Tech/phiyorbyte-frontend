@@ -39,7 +39,7 @@ export const Header = () => {
             <CiSearch />
             <input
               type="search"
-              className="border-0 outline-none bg-transparent text-sm placeholder:text-sm"
+              className="border-0 outline-none bg-transparent text-sm w-full placeholder:text-sm"
               placeholder="What are you looking for..."
             />
           </section>
