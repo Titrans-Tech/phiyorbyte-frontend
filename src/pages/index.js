@@ -4,6 +4,8 @@ import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { Hero } from "@/components/ui/auth/hero";
 import Image from "next/image";
+import { CategoryCard } from "@/components/cards/categoryCard";
+import { flashCategory, menCategory, womenCategory } from "@/utils/data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -111,6 +113,97 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="w-full bg-white py-12 ">
+            <CustomWrapper>
+              <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
+              <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {menCategory.map((cat, catIndex) => (
+                  <CategoryCard data={cat} key={catIndex} />
+                ))}
+              </section>
+              <div className="flex items-center mt-9 justify-center">
+                <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
+                  View All
+                </button>
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="py-4">
+            <section className="w-full py-5 bg-[#F40000]">
+              <CustomWrapper>
+                <section className="flex items-center justify-center gap-12">
+                  <div className="flex items-center gap-2">
+                    <div className="bg-white w-5 h-5 rounded-full"></div>
+                    <div className="bg-white w-10 h-10 rounded-full"></div>
+                    <div className="bg-white w-14 h-14 rounded-full"></div>
+                  </div>
+                  <h3 className="text-5xl flex items-center  gap-4  font-bold text-white">
+                    Flash Sales{" "}
+                    <span className="text-white  font-bold text-xl">
+                      Time Left: 10h : 50m : 20s
+                    </span>
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <div className="bg-white w-14 h-14 rounded-full"></div>
+                    <div className="bg-white w-10 h-10 rounded-full"></div>
+                    <div className="bg-white w-5 h-5 rounded-full"></div>
+                  </div>
+                </section>
+              </CustomWrapper>
+            </section>
+            <CustomWrapper>
+              <>
+                <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                  {flashCategory.map((cat, catIndex) => (
+                    <CategoryCard data={cat} key={catIndex} />
+                  ))}
+                </section>
+                <div className="flex items-center mt-9 justify-center">
+                  <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
+                    View All
+                  </button>
+                </div>
+              </>
+            </CustomWrapper>
+          </section>
+          <div className="w-full py-12 bg-[#F0E0ED]">
+            <CustomWrapper>
+              <h3 className="font-bold text-4xl text-center">BROWSE BY DRESS STYLE</h3>
+              <section className="mt-8 space-y-2 ">
+                <div className="flex  gap-5 items-center justify-center">
+                  <div className="max-w-xs h-[25vh] w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold text-2xl">Casual</h3>
+                  </div>
+                  <div className="max-w-xl h-[25vh] w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold text-2xl">Fomal</h3>
+                  </div>
+                </div>
+                <div className="flex gap-5 items-center justify-center">
+                  <div className="max-w-xl max-w h-[25vh] w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold text-2xl">Party</h3>
+                  </div>
+                  <div className="max-w-xs h-[25vh] w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold text-2xl">Gym</h3>
+                  </div>
+                </div>
+              </section>
+            </CustomWrapper>
+          </div>
+          <section className="w-full bg-white py-12 ">
+            <CustomWrapper>
+              <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
+              <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {womenCategory.map((cat, catIndex) => (
+                  <CategoryCard data={cat} key={catIndex} />
+                ))}
+              </section>
+              <div className="flex items-center mt-9 justify-center">
+                <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
+                  View All
+                </button>
               </div>
             </CustomWrapper>
           </section>
