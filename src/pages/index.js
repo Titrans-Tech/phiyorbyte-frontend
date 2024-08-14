@@ -174,19 +174,39 @@ export default function Home() {
               <h3 className="font-bold text-4xl text-center">BROWSE BY DRESS STYLE</h3>
               <section className="mt-8 space-y-2 ">
                 <div className="flex  gap-5 items-center justify-center">
-                  <div className="max-w-xs h-[25vh] w-full py-2 px-6 rounded bg-white">
-                    <h3 className="font-bold text-2xl">Casual</h3>
+                  <div className="max-w-xs relative h-[25vh] overflow-hidden w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold absolute text-2xl">Casual</h3>
+                    <img
+                      src="/assets/category/style1.png"
+                      className="absolut ml-11 -mt-5 top-2 z-0"
+                      alt=""
+                    />
                   </div>
-                  <div className="max-w-xl h-[25vh] w-full py-2 px-6 rounded bg-white">
-                    <h3 className="font-bold text-2xl">Fomal</h3>
+                  <div className="max-w-xl h-[25vh] relative overflow-hidden w-full py-2 px-6 rounded bg-white">
+                    <h3 className="font-bold absolute text-2xl">Fomal</h3>
+                    <img
+                      src="/assets/category/style2.png"
+                      className="absolut ml-11 -mt-5 top-2 z-0"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="flex gap-5 items-center justify-center">
-                  <div className="max-w-xl max-w h-[25vh] w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xl relative overflow-hidden max-w h-[25vh] w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold text-2xl">Party</h3>
+                    <img
+                      src="/assets/category/style3.png"
+                      className="absolut ml-20 -mt-12 top-2 z-0"
+                      alt=""
+                    />
                   </div>
-                  <div className="max-w-xs h-[25vh] w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xs relative overflow-hidden h-[25vh] w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold text-2xl">Gym</h3>
+                    <img
+                      src="/assets/category/style4.png"
+                      className="absolut ml-14 -mt-8 top-2 z-0"
+                      alt=""
+                    />
                   </div>
                 </div>
               </section>
