@@ -3,13 +3,30 @@ import { Inter } from "next/font/google";
 import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { Hero } from "@/components/ui/auth/hero";
-import Image from "next/image";
+import Slider from "react-slick";
 import { CategoryCard } from "@/components/cards/categoryCard";
-import { flashCategory, menCategory, womenCategory } from "@/utils/data";
+import { faqs, flashCategory, menCategory, newArrivalCategory, womenCategory } from "@/utils/data";
+import { LatestArrivalCard } from "@/components/cards/latestArrivalCard";
+import { TestimonyCard } from "@/components/cards/testimonyCard";
+import { useRef } from "react";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { FaqAccordion } from "@/components/cards/accordion";
+import { Footer } from "@/components/ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  let sliderRef = useRef(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   const img = [
     "/versaceSponsor.png",
     "/zaraSponsor.png",
@@ -227,6 +244,98 @@ export default function Home() {
               </div>
             </CustomWrapper>
           </section>
+          <section className="w-full relative bg-[#F0F0F0] py-12">
+            <CustomWrapper>
+              <h3 className="tracking-widest text-center text-4xl">latest arrivals</h3>
+              <div className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {newArrivalCategory.map((data, dataIndex) => (
+                  <LatestArrivalCard data={data} key={dataIndex} />
+                ))}
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="w-full relative bg-white py-7">
+            <CustomWrapper>
+              <div
+                style={{
+                  backgroundImage: `url( "https://ik.imagekit.io/hydekcjmz/phiyorbyte/group-friends-posing-together-outdoors%201.png?updatedAt=1724231547054")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+                className="bg-black relative w-full overflow-hidden py-12 flex items-center px-12 rounded min-h-[400px]"
+              >
+                <div
+                  style={{ background: "rgba(116, 121, 90, 0.6)" }}
+                  className="min-h-[400px] left-0 absolute z-20 bg-[transparent] w-full"
+                ></div>
+
+                <section className="max-w-xl relative z-50">
+                  <h3 className="text-3xl font-bold text-white">
+                    WE MADE YOUR EVERYDAY FASHION BETTER!
+                  </h3>
+                  <p className="font-normal text-lg text-white">
+                    Discover effortlessly stylish pieces designed to elevate your daily wardrobe.
+                    Experience comfort and versatility in every outfit!
+                  </p>
+                  <button className="py-2 px-6 bg-white rounded-lg text-sm font-semibold mt-5">
+                    Shop Now
+                  </button>
+                </section>
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="w-full bg-white py-5">
+            <CustomWrapper>
+              <div className="flex items-center justify-center flex-col">
+                <h3 className="text-3xl font-medium tracking-widest ">Stay Connected & Inspired</h3>
+                <p className="text-base font-normal max-w-lg text-center">
+                  Discover the latest trends and exclusive offers. Follow us for daily style tips
+                  and behind-the-scenes looks!
+                </p>
+              </div>
+              <div className="mt-8">
+                <img
+                  src="https://ik.imagekit.io/hydekcjmz/phiyorbyte/image.png?updatedAt=1724234150824"
+                  alt=""
+                />
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="w-full bg-white py-8">
+            <CustomWrapper>
+              <div className="flex items-center justify-between">
+                <h3 className="font-medium text-4xl">OUR HAPPY CUSTOMERS</h3>
+
+                <div className="flex items-end justify-end gap-5">
+                  <FaArrowLeftLong fontSize={18} color="#000" />
+                  <FaArrowRightLong fontSize={18} color="#000" />
+                </div>
+              </div>
+              <div className="mt-6">
+                <Slider ref={(slider) => (sliderRef = slider)} {...settings}>
+                  {Array.from({ length: 5 }).map((dataIndex) => (
+                    <TestimonyCard key={dataIndex} />
+                  ))}
+                </Slider>
+              </div>
+            </CustomWrapper>
+          </section>
+          <section className="bg-[#F0F0F0] py-12 mb-20">
+            <CustomWrapper>
+              <section>
+                <h3 className="text-3xl font-medium tracking-widest text-center">
+                  Frequently Asked Questions
+                </h3>
+                <section className="grid gap-8 mt-8 grid-cols-[repeat(auto-fill,_minmax(500px,_1fr))]">
+                  {faqs.map((faq, faqIndex) => (
+                    <FaqAccordion faq={faq} key={faqIndex} />
+                  ))}
+                </section>
+              </section>
+            </CustomWrapper>
+          </section>
+          <Footer />
         </main>
       </CustomLayout>
     </main>

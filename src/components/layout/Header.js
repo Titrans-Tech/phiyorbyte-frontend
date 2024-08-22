@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <nav className="  w-full bg-[white]">
+    <nav className="  w-full bg-[white] border-b border-[#BEBCBD]">
       <CustomWrapper>
         <div className="px-4 py-3 flex items-center gap-12">
           <Link href="/">
