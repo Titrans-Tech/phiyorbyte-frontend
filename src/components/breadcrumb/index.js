@@ -9,7 +9,7 @@ export const Breadcrumb = ({ url }) => {
         Home
       </button>
       <MdKeyboardArrowRight />
-      <button className="text-base  font-medium text-[#000]">{url}</button>
+      <button className="text-base capitalize font-medium text-[#000]">{url}</button>
     </section>
   );
 };

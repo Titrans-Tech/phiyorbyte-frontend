@@ -258,3 +258,24 @@ export const newArivalData = [
     per: "20",
   },
 ];
+
+export const favData = [
+  {
+    name: "Gradient Graphic T-shirt",
+    color: "Blue",
+    price: "$145",
+    img: "flash1.png",
+  },
+  {
+    name: "Checkered Shirt",
+    color: "Red",
+    price: "$185",
+    img: "flash2.png",
+  },
+  {
+    name: "Skiiny Fit Jeans",
+    color: "Green",
+    price: "$245",
+    img: "flash3.png",
+  },
+];

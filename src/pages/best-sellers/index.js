@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { Breadcrumb } from "@/components/breadcrumb";
@@ -6,8 +5,6 @@ import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CategoryCard } from "@/components/cards/categoryCard";
 import { Footer } from "@/components/ui/footer";
 import { newArivalData } from "@/utils/data";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function BestSellers() {
   return (
