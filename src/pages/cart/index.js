@@ -4,6 +4,7 @@ import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CartSummary } from "@/components/ui/cart/cartSummary";
+import { Footer } from "@/components/ui/footer";
 import { favData } from "@/utils/data";
 
 const Cart = () => {
@@ -12,18 +13,21 @@ const Cart = () => {
       <CustomLayout>
         <CustomWrapper>
           <Breadcrumb url="Cart" />
-          <section>
-            <ComponentTitle title="Your Cart" />
-          </section>
-          <div className="grid grid-cols-2 items-start">
-            <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
-              {favData.map((fav, favIndex) => (
-                <ProductCartCard key={favIndex} fav={fav} />
-              ))}
+          <main className="mb-20 ">
+            <section className="mt-5">
+              <ComponentTitle title="Your Cart" />
+            </section>
+            <div className="grid grid-cols-2 items-start">
+              <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
+                {favData.map((fav, favIndex) => (
+                  <ProductCartCard key={favIndex} fav={fav} />
+                ))}
+              </div>
+              <CartSummary />
             </div>
-            <CartSummary />
-          </div>
+          </main>
         </CustomWrapper>
+        <Footer />
       </CustomLayout>
     </section>
   );
