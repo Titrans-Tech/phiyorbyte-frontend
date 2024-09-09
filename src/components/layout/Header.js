@@ -112,7 +112,11 @@ export const Header = () => {
             >
               <IoMdHeartEmpty />
             </div>
-            <div className="bg-[#F6F6F6] flex h-8 rounded-[8px] px-2 text-lg text-[#807D7E] items-center justify-center">
+            <div
+              role="button"
+              onClick={() => router.push("/profile")}
+              className="bg-[#F6F6F6] flex h-8 rounded-[8px] px-2 text-lg text-[#807D7E] items-center justify-center"
+            >
               <LuUser2 />
             </div>
             <div
