@@ -13,8 +13,7 @@ import { ComponentLoading } from "@/components/button/componentLoading";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function MenComponent() {
-  const query = useRouter().query;
-  const { product, error, loading } = useFetchMenProducts();
+  const { product, loading } = useFetchMenProducts();
 
   console.log(product, "the product");
   return (

@@ -7,7 +7,6 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import { Footer } from "@/components/ui/footer";
 import { useFetchProfile } from "../../components/ui/profile/_component/useUser";
 import { useEffect, useState } from "react";
-import { BtnLoading } from "@/components/button/btnLoading";
 import { ComponentLoading } from "@/components/button/componentLoading";
 
 const Profile = () => {
