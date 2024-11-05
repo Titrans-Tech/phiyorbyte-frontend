@@ -13,7 +13,7 @@ import { useState } from "react";
 const WomenCategories = () => {
   const router = useRouter();
   const data = { recordId: [1, 2, 3], totalPages: 3 };
-
+  const query = router.query;
   const [page, setPage] = useState(0);
 
   const handleNextPage = (pages) => {
@@ -24,7 +24,9 @@ const WomenCategories = () => {
     <section>
       <CustomLayout>
         <CustomWrapper>
-          <Breadcrumb url={router.query.id} />
+          <div className="mt-4">
+            <Breadcrumb url={router.query.id} />
+          </div>
           <section className="flex mb-14">
             <section className="my-6 w-full">
               <FilterComponent />
@@ -42,7 +44,7 @@ const WomenCategories = () => {
               </section>
               <section className="flex pb-3 border-b flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))] items-center  ">
                 {newArivalData.map((cat, catIndex) => (
-                  <CategoryCard data={cat} key={catIndex} />
+                  <CategoryCard link={`/women/${query.id}`} data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="my-12">

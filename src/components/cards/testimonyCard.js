@@ -2,7 +2,7 @@ import { VerifiedIcon } from "../icons";
 
 export const TestimonyCard = () => {
   return (
-    <section className="border max-w-sm border-[#0000001A] rounded-[20px] px-3 py-5 ">
+    <section className="border max-w-sm border-[#0000001A] rounded-[20px] mx-3 px-3 py-5 ">
       <img className="w-20" src="/assets/star-rating.png" alt="" />
       <div className="flex items-center gap-1">
         <h3 className="font-bold text-lg">Sarah M.</h3>

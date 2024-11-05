@@ -67,13 +67,13 @@ export const Hero = () => {
   return (
     <section
       style={{ background: imgCarousel[current]?.bg }}
-      className="w-full h-[80vh] overflow-hidden "
+      className="w-full md:h-[80vh] overflow-hidden "
     >
       <CustomWrapper>
         <section>
           <MdOutlineKeyboardArrowLeft
             onClick={prevImg}
-            className="absolute -left-2 top-[50%]"
+            className="hidden md:block absolute -left-2 top-[50%]"
             color={imgCarousel[current]?.fontColor}
             fontSize={100}
           />
@@ -81,19 +81,19 @@ export const Hero = () => {
             color={imgCarousel[current]?.fontColor}
             fontSize={100}
             onClick={prevImg}
-            className="absolute right-10 top-[50%]"
+            className="hidden md:block  absolute right-10 top-[50%]"
           />
         </section>
-        <section className="px-12 flex items-center justify-center py-3">
+        <section className="px-5 md:px-12 md:flex items-center justify-center py-3">
           <div className="z-30">
             <h4
               style={{ color: imgCarousel[current].color }}
-              className=" my-3 font-semibold text-xl font-[Montserrat]"
+              className=" my-3 font-semibold text-sm md:text-xl font-[Montserrat]"
             >
               {imgCarousel[current]?.title}
             </h4>
             <h1
-              className={`font-black w-full  leading-[60px] text-white text-[60px] ${lato.className}`}
+              className={`font-black w-full  md:leading-[60px] text-white text-3xl md:text-[60px] ${lato.className}`}
             >
               {imgCarousel[current]?.description}
             </h1>
@@ -107,7 +107,7 @@ export const Hero = () => {
               Shop Now
             </button>
           </div>
-          <div className="relative -left-20 top-6 ">
+          <div className="relative md:-left-20 top-6 ">
             <img
               src={imgCarousel[current]?.img}
               className="w[600px]"

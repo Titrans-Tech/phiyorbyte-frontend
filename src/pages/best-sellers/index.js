@@ -10,7 +10,7 @@ export default function BestSellers() {
   return (
     <main>
       <CustomLayout>
-        <main>
+        <main className="mt-4">
           <CustomWrapper>
             <Breadcrumb
               url="Best Sellers

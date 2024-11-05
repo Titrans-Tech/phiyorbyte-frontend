@@ -12,11 +12,14 @@ import { useRef } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { FaqAccordion } from "@/components/cards/accordion";
 import { Footer } from "@/components/ui/footer";
+import { useFetchMenProducts, useFetchWomenProducts } from "@/hooks/useCategoryApi";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   let sliderRef = useRef(null);
+  const { product, error, loading } = useFetchMenProducts();
+  const { product: womenProduct } = useFetchWomenProducts();
 
   const settings = {
     dots: false,
@@ -25,6 +28,29 @@ export default function Home() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const img = [
@@ -66,7 +92,12 @@ export default function Home() {
             <CustomWrapper>
               <div className="flex items-center justify-between">
                 {img.map((img, imgIndex) => (
-                  <img src={`/assets${img}`} className="w-[100px]" key={imgIndex} alt="" />
+                  <img
+                    src={`/assets${img}`}
+                    className="w-[50px] md:w-[100px]"
+                    key={imgIndex}
+                    alt=""
+                  />
                 ))}
               </div>
             </CustomWrapper>
@@ -81,7 +112,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex my-5 justify-center items-center">
+              <div className="hidden md:flex my-5 justify-center items-center">
                 <img
                   src="https://ik.imagekit.io/hydekcjmz/phiyorbyte/Rectangle%2091.png?updatedAt=1723262450553"
                   alt=""
@@ -120,11 +151,11 @@ export default function Home() {
             className="w-full mt-10 py-4 px-4 bg-[#BACF8C]"
           >
             <CustomWrapper>
-              <div className="flex items-center justify-between">
+              <div className="flex gap-4 flex-wrap items-center justify-center space-y-3 md:justify-between">
                 {services.map((service, serviceIndex) => (
-                  <div className="flex items-center gap-2" key={serviceIndex}>
+                  <div className="flex flex-col md:flex-row  items-center gap-2" key={serviceIndex}>
                     <img className="w-10" src={service.img} alt="" />
-                    <div>
+                    <div className="text-center">
                       <h3 className="text-[#002400] font-medium text-lg">{service.offerTitle}</h3>
                       <p className="text-base font-normal">{service.description}</p>
                     </div>
@@ -136,8 +167,8 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
-              <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
-                {menCategory.map((cat, catIndex) => (
+              <section className="flex flex-wrap  gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {product?.map((cat, catIndex) => (
                   <CategoryCard data={cat} key={catIndex} />
                 ))}
               </section>
@@ -149,21 +180,21 @@ export default function Home() {
             </CustomWrapper>
           </section>
           <section className="py-4">
-            <section className="w-full py-5 bg-[#F40000]">
+            <section className="w-full px-5 py-5 bg-[#F40000]">
               <CustomWrapper>
-                <section className="flex items-center justify-center gap-12">
-                  <div className="flex items-center gap-2">
+                <section className="flex  items-center justify-center gap-12">
+                  <div className="hidden md:flex items-center gap-2">
                     <div className="bg-white w-5 h-5 rounded-full"></div>
                     <div className="bg-white w-10 h-10 rounded-full"></div>
                     <div className="bg-white w-14 h-14 rounded-full"></div>
                   </div>
-                  <h3 className="text-5xl flex items-center  gap-4  font-bold text-white">
+                  <h3 className="text-3xl md:text-5xl flex-col md:flex-row flex items-center  md:gap-4  font-bold text-white">
                     Flash Sales{" "}
                     <span className="text-white  font-bold text-xl">
                       Time Left: 10h : 50m : 20s
                     </span>
                   </h3>
-                  <div className="flex items-center gap-2">
+                  <div className="hidden md:flex items-center gap-2">
                     <div className="bg-white w-14 h-14 rounded-full"></div>
                     <div className="bg-white w-10 h-10 rounded-full"></div>
                     <div className="bg-white w-5 h-5 rounded-full"></div>
@@ -173,7 +204,7 @@ export default function Home() {
             </section>
             <CustomWrapper>
               <>
-                <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                   {flashCategory.map((cat, catIndex) => (
                     <CategoryCard data={cat} key={catIndex} />
                   ))}
@@ -191,7 +222,7 @@ export default function Home() {
               <h3 className="font-bold text-4xl text-center">BROWSE BY DRESS STYLE</h3>
               <section className="mt-8 space-y-2 ">
                 <div className="flex  gap-5 items-center justify-center">
-                  <div className="max-w-xs relative h-[25vh] overflow-hidden w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xs relative h-[10vh] md:h-[25vh] overflow-hidden w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold absolute text-2xl">Casual</h3>
                     <img
                       src="/assets/category/style1.png"
@@ -199,7 +230,7 @@ export default function Home() {
                       alt=""
                     />
                   </div>
-                  <div className="max-w-xl h-[25vh] relative overflow-hidden w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xl h-[10vh] md:h-[25vh]  relative overflow-hidden w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold absolute text-2xl">Fomal</h3>
                     <img
                       src="/assets/category/style2.png"
@@ -209,7 +240,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-5 items-center justify-center">
-                  <div className="max-w-xl relative overflow-hidden max-w h-[25vh] w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xl relative overflow-hidden max-w h-[10vh] md:h-[25vh]  w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold text-2xl">Party</h3>
                     <img
                       src="/assets/category/style3.png"
@@ -217,7 +248,7 @@ export default function Home() {
                       alt=""
                     />
                   </div>
-                  <div className="max-w-xs relative overflow-hidden h-[25vh] w-full py-2 px-6 rounded bg-white">
+                  <div className="max-w-xs relative overflow-hidden h-[10vh] md:h-[25vh]  w-full py-2 px-6 rounded bg-white">
                     <h3 className="font-bold text-2xl">Gym</h3>
                     <img
                       src="/assets/category/style4.png"
@@ -232,8 +263,8 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
-              <section className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
-                {womenCategory.map((cat, catIndex) => (
+              <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {womenProduct?.map((cat, catIndex) => (
                   <CategoryCard data={cat} key={catIndex} />
                 ))}
               </section>
@@ -244,10 +275,10 @@ export default function Home() {
               </div>
             </CustomWrapper>
           </section>
-          <section className="w-full relative bg-[#F0F0F0] py-12">
+          <section className="w-full relative bg-[#F0F0F0] px-5 md:px-10 py-12">
             <CustomWrapper>
               <h3 className="tracking-widest text-center text-4xl">latest arrivals</h3>
-              <div className="flex gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <div className="flex flex-wrap gap-12 mt-10 justify-center items-center  ">
                 {newArrivalCategory.map((data, dataIndex) => (
                   <LatestArrivalCard data={data} key={dataIndex} />
                 ))}
@@ -285,10 +316,12 @@ export default function Home() {
               </div>
             </CustomWrapper>
           </section>
-          <section className="w-full bg-white py-5">
+          <section className="w-full bg-white px-5 py-5">
             <CustomWrapper>
               <div className="flex items-center justify-center flex-col">
-                <h3 className="text-3xl font-medium tracking-widest ">Stay Connected & Inspired</h3>
+                <h3 className="text-3xl font-medium text-center md:text-left tracking-widest ">
+                  Stay Connected & Inspired
+                </h3>
                 <p className="text-base font-normal max-w-lg text-center">
                   Discover the latest trends and exclusive offers. Follow us for daily style tips
                   and behind-the-scenes looks!
@@ -302,7 +335,7 @@ export default function Home() {
               </div>
             </CustomWrapper>
           </section>
-          <section className="w-full bg-white py-8">
+          <section className="w-full bg-white px-5 md:px-10 py-8">
             <CustomWrapper>
               <div className="flex items-center justify-between">
                 <h3 className="font-medium text-4xl">OUR HAPPY CUSTOMERS</h3>
@@ -321,13 +354,13 @@ export default function Home() {
               </div>
             </CustomWrapper>
           </section>
-          <section className="bg-[#F0F0F0] py-12 mb-20">
+          <section className="bg-[#F0F0F0] px-5 md:px-10 py-12 mb-20">
             <CustomWrapper>
               <section>
                 <h3 className="text-3xl font-medium tracking-widest text-center">
                   Frequently Asked Questions
                 </h3>
-                <section className="grid gap-8 mt-8 grid-cols-[repeat(auto-fill,_minmax(500px,_1fr))]">
+                <section className="md:grid gap-8 mt-8 grid-cols-[repeat(auto-fill,_minmax(500px,_1fr))]">
                   {faqs.map((faq, faqIndex) => (
                     <FaqAccordion faq={faq} key={faqIndex} />
                   ))}

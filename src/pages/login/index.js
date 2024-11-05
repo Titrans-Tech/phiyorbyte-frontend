@@ -11,6 +11,10 @@ import { VerificationModal } from "@/components/ui/auth/verifyPin";
 import { ResetPasswordModal } from "@/components/ui/auth/resetPassword";
 import { useForm } from "react-hook-form";
 import ValidationMessage from "@/components/validationMessage";
+import { useRouter } from "next/router";
+import { loginUser } from "@/service/auth";
+import { getErrorMessage } from "@/utils";
+import Alerts from "@/components/alert";
 
 const LoginScreen = () => {
   const [openForgotPasswordModal, setOpenForgotPasswordModal] = useState(false);
@@ -24,18 +28,59 @@ const LoginScreen = () => {
     formState: { errors, isValid },
   } = useForm();
 
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState({
+    isErr: false,
+    errMsg: "",
+  });
+
+  const handleLoginUserLogin = async (data) => {
+    const bodyData = {
+      email: data.email,
+      password: data.password,
+    };
+    try {
+      setLoading(true);
+      const res = await loginUser(bodyData);
+      const response = await res.data;
+
+      if (response) {
+        setLoading(false);
+        localStorage.setItem("access_token", response?.access_token);
+        localStorage.setItem("user_data", JSON.stringify(response?.user));
+        console.log(response, "the response");
+        router.push("/profile");
+      }
+    } catch (error) {
+      setLoading(false);
+      setErr({
+        isErr: true,
+        errMsg: getErrorMessage(error),
+      });
+    }
+  };
+
   return (
     <>
-      <section className="min-h-screen grid grid-cols-2 items-start gap-2 bg-white">
-        <div className="h-[100vh]  overflow-hidden">
+      <section className="min-h-screen md:grid grid-cols-2 items-start gap-2 bg-white">
+        <div className="h-[100vh] hidden md:block  overflow-hidden">
           <Image src="/assets/authImg2.png" alt="" height={100} width={700} className="w-full" />
         </div>
         <div className="flex items-center justify-center flex-col min-h-screen">
           <div className="py-5 pt-12   w-full max-w-sm  min-h-screen mx-auto">
             <div className="flex items-center justify-center">
-              <Logo />
+              <Link href="/">
+                {" "}
+                <Logo />
+              </Link>
             </div>
-            <form onSubmit={handleSubmit((data) => console.log(data))} className="mt-6 ">
+            <form onSubmit={handleSubmit(handleLoginUserLogin)} className="mt-6 px-5 ">
+              <Alerts
+                show={err.isErr}
+                message={err.errMsg}
+                close={() => setErr({ ...err, isErr: false })}
+              />
               <div className="text-center">
                 <h3 className="font-bold text-2xl">Login</h3>
                 <p className="font-normal text-base">Enter your details below to login.</p>
@@ -79,7 +124,7 @@ const LoginScreen = () => {
                 </div>
               </section>
               <section>
-                <PrimaryButton>Login</PrimaryButton>
+                <PrimaryButton loading={loading}>Login</PrimaryButton>
 
                 <p className="text-base font-normal my-4 text-center text-[#00000066]">
                   Alraedy have an account?

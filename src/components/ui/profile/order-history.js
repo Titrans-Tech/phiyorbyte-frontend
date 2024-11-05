@@ -1,11 +1,13 @@
+import { useFetchOrders } from "@/pages/profile/_component/useUser";
 import Image from "next/image";
 
-export const OrderHistoryUi = () => {
-  const orders = [
-    { name: "Gradient Graphic T-shirt", img: "men1.png", status: "Ongoing", redeemStatus: null },
-    { name: "CHECKERED SHIRT", status: "Cancelled", img: "women1.png", redeemStatus: "Available" },
-    { name: "SKINNY FIT JEANS", status: "Delivered", img: "men2.png", redeemStatus: "Ended" },
-  ];
+export const OrderHistoryUi = ({ orders }) => {
+  // console.log(order, "the order");
+  // const orders = [
+  //   { name: "Gradient Graphic T-shirt", img: "men1.png", status: "Ongoing", redeemStatus: null },
+  //   { name: "CHECKERED SHIRT", status: "Cancelled", img: "women1.png", redeemStatus: "Available" },
+  //   { name: "SKINNY FIT JEANS", status: "Delivered", img: "men2.png", redeemStatus: "Ended" },
+  // ];
   return (
     <section className="border p-4 rounded-md mt-5">
       {orders.map((item, itemIndex) => (

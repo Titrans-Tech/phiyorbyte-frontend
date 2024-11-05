@@ -2,7 +2,16 @@ import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import Select from "react-select";
 
-export const FormInput = ({ label, placeholder, icon, type = "text", name }) => {
+export const FormInput = ({
+  disabled,
+  value,
+  onChange,
+  label,
+  placeholder,
+  icon,
+  type = "text",
+  name,
+}) => {
   return (
     <section className={`my-1`}>
       {label && (
@@ -12,7 +21,10 @@ export const FormInput = ({ label, placeholder, icon, type = "text", name }) => 
       )}
       <section className="bg-transparent px-2  mt-2 border border-[#0000001A] rounded-[62px] h-10  w-full flex items-center justify-start gap-3">
         <input
+          value={value}
+          onChange={onChange}
           name={name}
+          disabled={disabled}
           type="text"
           className="border-0 bg-transparent outline-0 placeholder:text-base placeholder:text-[#00000066] bg-[#F0F0F0] w-full"
           placeholder={placeholder}
