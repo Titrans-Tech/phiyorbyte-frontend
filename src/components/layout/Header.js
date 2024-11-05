@@ -7,14 +7,21 @@ import { useRouter } from "next/router";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { LuUser2 } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
-import { useEffect } from "react";
-import { isDesktop } from "@/utils";
+import { useEffect, useState } from "react";
+import { getStoredId, isDesktop } from "@/utils";
+import { MobileHeader } from "./mobileHeader";
 
 export const Header = () => {
+  const [user, setUser] = useState(null);
   const router = useRouter();
   const isActive = (link) => {
     return router?.pathname?.split("/")[1] == link?.split("?")[0].slice(1);
   };
+  const user_details = getStoredId("user_data");
+
+  useEffect(() => {
+    setUser(JSON.parse(user_details));
+  }, []);
 
   useEffect(() => {
     const dropdowns = document.querySelectorAll(".desktop-dropdown");
@@ -35,7 +42,7 @@ export const Header = () => {
   return (
     <nav className="  w-full bg-[white] border-b border-[#BEBCBD]">
       <CustomWrapper>
-        <div className="px-4 py-3 flex items-center gap-12">
+        <div className="px-4 py-3 hidden lg:flex items-center gap-12">
           <Link href="/">
             <Logo size={100} />
           </Link>
@@ -107,17 +114,21 @@ export const Header = () => {
           <section className="flex items-center gap-3">
             <div
               role="button"
-              onClick={() => router.push("/favorites")}
+              onClick={user?.name ? () => router.push("/favorites") : () => router.push("/login")}
               className="bg-[#F6F6F6] flex h-8 rounded-[8px] px-2 text-lg text-[#807D7E] items-center justify-center"
             >
               <IoMdHeartEmpty />
             </div>
             <div
               role="button"
-              onClick={() => router.push("/profile")}
+              onClick={user?.name ? () => router.push("/profile") : () => router.push("/login")}
               className="bg-[#F6F6F6] flex h-8 rounded-[8px] px-2 text-lg text-[#807D7E] items-center justify-center"
             >
-              <LuUser2 />
+              {user?.name ? (
+                <p className="uppercase">{`${user?.name?.charAt(0)}${user?.name?.charAt(1)}`}</p>
+              ) : (
+                <LuUser2 />
+              )}
             </div>
             <div
               role="button"
@@ -129,6 +140,7 @@ export const Header = () => {
           </section>
         </div>
       </CustomWrapper>
+      <MobileHeader />
     </nav>
   );
 };

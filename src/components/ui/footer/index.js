@@ -17,8 +17,8 @@ export const Footer = () => {
   return (
     <footer className="bg-[#F0F0F0] w-full relative">
       <CustomWrapper>
-        <section className="bg-black relative -top-10 rounded-[20px] py-5 px-16 flex grid-cols-2 items-center justify-between ">
-          <h3 className="font-bold max-w-xl text-4xl text-white">
+        <section className="bg-black relative -top-10 md:rounded-[20px] py-5 px-4 md:px-16 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 ">
+          <h3 className="font-bold text-center md:text-left max-w-xl text-2xl md:text-4xl text-white">
             STAY UPTO DATE ABOUT OUR LATEST OFFERS
           </h3>
           <div className="w-full max-w-xs">
@@ -35,7 +35,7 @@ export const Footer = () => {
             </button>
           </div>
         </section>
-        <section className="py-4 grid items-start border-b border-[#0000001A] pb-8 grid-cols-4 gap-4">
+        <section className="py-4 px-5 md:grid items-start border-b border-[#0000001A] pb-8 grid-cols-4 gap-4">
           <div>
             <Logo size={120} />
             <p className="text-[#00000099] mt-3 font-normal text-sm">
@@ -75,9 +75,9 @@ export const Footer = () => {
             <li className="text-base py-1 font-normal text-[#00000099]">Payments</li>
           </ul>
         </section>
-        <section className="py-3 flex items-center justify-between">
+        <section className="py-3 px-5 flex flex-wrap-reverse items-center justify-between">
           <p className="text-sm text-[#00000099]">Phiyorbyte© 2000-2024, All Rights Reserved</p>
-          <div className="flex items-center justify-start gap-2">
+          <div className="flex flex-wrap items-center justify-start gap-2">
             {paymentMethod.map((payment) => (
               <Image
                 key={payment}

@@ -10,7 +10,7 @@ export default function BestSellers() {
   return (
     <main>
       <CustomLayout>
-        <main>
+        <main className="mt-4">
           <CustomWrapper>
             <Breadcrumb
               url="Best Sellers
@@ -28,7 +28,7 @@ export default function BestSellers() {
             </section>
             <section className="flex flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
               {newArivalData.map((cat, catIndex) => (
-                <CategoryCard data={cat} key={catIndex} />
+                <CategoryCard link="/product" data={cat} key={catIndex} />
               ))}
             </section>
           </CustomWrapper>

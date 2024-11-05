@@ -6,14 +6,19 @@ import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CategoryCard } from "@/components/cards/categoryCard";
 import { Footer } from "@/components/ui/footer";
 import { newArivalData } from "@/utils/data";
+import { useFetchWomenProducts } from "@/hooks/useCategoryApi";
+import { ComponentLoading } from "@/components/button/componentLoading";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function MenComponent() {
+export default function WomenComponent() {
+  const { product, error, loading } = useFetchWomenProducts();
+
+  console.log(product, "the product");
   return (
     <main>
       <CustomLayout>
-        <main>
+        <main className="mt-4">
           <CustomWrapper>
             <Breadcrumb url="Women" />
             <section className="my-3 flex items-center justify-between">
@@ -26,11 +31,15 @@ export default function MenComponent() {
                 </p>
               </div>
             </section>
-            <section className="flex flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
-              {newArivalData.map((cat, catIndex) => (
-                <CategoryCard data={cat} key={catIndex} />
-              ))}
-            </section>
+            {loading ? (
+              <ComponentLoading />
+            ) : (
+              <section className="flex flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                {product?.map((cat, catIndex) => (
+                  <CategoryCard link="/product" data={cat} key={catIndex} />
+                ))}
+              </section>
+            )}
           </CustomWrapper>
           <Footer />
         </main>

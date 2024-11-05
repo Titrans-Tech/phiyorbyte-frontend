@@ -9,6 +9,11 @@ import Link from "next/link";
 import { PrimaryButton } from "@/components/button";
 import ValidationMessage from "@/components/validationMessage";
 import { useForm } from "react-hook-form";
+import Alerts from "@/components/alert";
+import { useState } from "react";
+import { getErrorMessage } from "@/utils";
+import { registerUser } from "@/service/auth";
+import { useRouter } from "next/router";
 
 const SignupScreen = () => {
   const {
@@ -19,10 +24,44 @@ const SignupScreen = () => {
     formState: { errors, isValid },
   } = useForm();
 
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState({
+    isErr: false,
+    errMsg: "",
+  });
+
+  const signupNewUser = async (data) => {
+    const bodyData = {
+      name: data.fullName,
+      email: data.email,
+      phone: data.phoneNumber,
+      address: data.homeAddress,
+      password: data.password,
+      password_confirmation: data.confirmPassword,
+    };
+    try {
+      setLoading(true);
+      const res = await registerUser(bodyData);
+      const response = await res.data;
+
+      if (response) {
+        setLoading(false);
+        router.push("/login");
+      }
+    } catch (error) {
+      setLoading(false);
+      setErr({
+        isErr: true,
+        errMsg: getErrorMessage(error),
+      });
+    }
+  };
+
   const password = watch("password", "");
   return (
-    <section className="min-h-screen grid grid-cols-2 items-start gap-2 bg-white">
-      <div className="min-h-[100vh]  overflow-hidden">
+    <section className="min-h-screen md:grid grid-cols-2 items-start gap-2 bg-white">
+      <div className="min-h-[100vh] hidden md:block  overflow-hidden">
         <Image src="/assets/authImg1.png" alt="" height={100} width={700} className="w-full" />
       </div>
       <div className="py-5  w-full max-w-sm  min-h-screen mx-auto">
@@ -32,7 +71,12 @@ const SignupScreen = () => {
             <Logo />
           </Link>
         </div>
-        <form onSubmit={handleSubmit((data) => console.log(data))} className="mt-6 ">
+        <form onSubmit={handleSubmit(signupNewUser)} className="mt-6 px-5  ">
+          <Alerts
+            show={err.isErr}
+            message={err.errMsg}
+            close={() => setErr({ ...err, isErr: false })}
+          />
           <div className="text-center">
             <h3 className="font-bold text-2xl">Sign Up</h3>
             <p className="font-normal text-base">Enter your details below to sign up.</p>
@@ -124,7 +168,7 @@ const SignupScreen = () => {
             </section>
           </section>
           <section>
-            <PrimaryButton>Signup</PrimaryButton>
+            <PrimaryButton loading={loading}>Signup</PrimaryButton>
             <p className="text-base font-normal my-4 text-center text-[#00000066]">
               Don’t have an account?{" "}
               <button className="text-base font-bold text-[#002400]">

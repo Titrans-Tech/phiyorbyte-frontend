@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
 import { FiTag } from "react-icons/fi";
 import { GoArrowRight } from "react-icons/go";
 
 export const CartSummary = () => {
+  const router = useRouter();
+
   return (
     <section className="border w-full space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
       <h3 className="text-lg font-bold">Order Summary</h3>
@@ -36,7 +39,10 @@ export const CartSummary = () => {
           Apply
         </button>
       </section>
-      <button className="py-3  gap-2 font-medium  w-full text-sm px-4 bg-[#000000] text-white flex items-center justify-center rounded-full">
+      <button
+        onClick={() => router.push("/cart/checkout")}
+        className="py-3  gap-2 font-medium  w-full text-sm px-4 bg-[#000000] text-white flex items-center justify-center rounded-full"
+      >
         <span> Go to Checkout</span>
         <GoArrowRight fontSize={18} fontWeight={600} />
       </button>

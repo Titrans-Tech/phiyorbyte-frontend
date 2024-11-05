@@ -7,8 +7,8 @@ export const PromoHeader = () => {
   return (
     <>
       {view && (
-        <div className="w-full h-12 bg-black flex items-center justify-between px-7">
-          <div>Phi</div>
+        <div className="w-full h-12 bg-black flex items-center justify-between px-3 md:px-7">
+          <div className="hidden md:flex">Phi</div>
           <p className="text-white font-normal text-sm">
             Sign up and get 20% off to your first order.{" "}
             <span className="font-medium text-white underline">

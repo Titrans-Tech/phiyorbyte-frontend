@@ -13,11 +13,11 @@ const Cart = () => {
       <CustomLayout>
         <CustomWrapper>
           <Breadcrumb url="Cart" />
-          <main className="mb-20 ">
+          <main className="mb-20 px-5 ">
             <section className="mt-5">
               <ComponentTitle title="Your Cart" />
             </section>
-            <div className="grid grid-cols-2 items-start">
+            <div className="md:grid grid-cols-2 items-start">
               <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
                 {favData.map((fav, favIndex) => (
                   <ProductCartCard key={favIndex} fav={fav} />

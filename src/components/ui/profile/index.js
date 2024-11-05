@@ -23,9 +23,23 @@ export const ProfileLayout = ({ children }) => {
     <>
       <section
         //   style={{ gridTemplateColumns: "23fr 57fr" }}
-        className="flex w-full  gap-10  mb-20 items-star mt-10"
+        className="md:flex w-full   gap-10  mb-20 items-star mt-10 px-5 md:px-5"
       >
-        <div className="border relative w-full max-h-[300px] max-w-xs px-3 rounded-lg py-2 border-[#0000001A]">
+        <div className="md:hidden my-3 flex flex-wrap items-center gap-4">
+          {url.map((uri) => (
+            <li
+              key={uri.link}
+              className={`text-sm border px-4 rounded-full list-none ${
+                isActive(uri.link)
+                  ? "font-medium text-white bg-black"
+                  : "font-normal text-[#00000099]"
+              }  py-2`}
+            >
+              <Link href={uri.link}>{uri.name}</Link>
+            </li>
+          ))}
+        </div>
+        <div className="border md:flex hidden  relative w-full max-h-[300px] max-w-xs px-3 rounded-lg py-2 border-[#0000001A]">
           <ul className="">
             {url.map((uri) => (
               <li

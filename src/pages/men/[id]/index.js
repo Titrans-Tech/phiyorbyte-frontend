@@ -15,6 +15,8 @@ const MenCategories = () => {
   const data = { recordId: [1, 2, 3], totalPages: 3 };
   const [page, setPage] = useState(0);
 
+  const query = router.query;
+
   const handleNextPage = (pages) => {
     setPage(pages);
   };
@@ -23,13 +25,15 @@ const MenCategories = () => {
     <section>
       <CustomLayout>
         <CustomWrapper>
-          <Breadcrumb url={router.query.id} />
+          <div className="mt-4">
+            <Breadcrumb url={router.query.id} />
+          </div>
           <section className="flex mb-14">
-            <section className="my-6 w-full">
+            <section className="my-6 hidden lg:block w-full">
               <FilterComponent />
             </section>
             <section>
-              <section className="my-3 flex items-center justify-between">
+              <section className="my-3 flex  px-5 items-center justify-between">
                 <ComponentTitle title={router.query.id} />
                 <div className="">
                   <p className="text-base text-[#00000099]">
@@ -41,7 +45,7 @@ const MenCategories = () => {
               </section>
               <section className="flex border-b pb-3 flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))] items-center  ">
                 {newArivalData.map((cat, catIndex) => (
-                  <CategoryCard data={cat} key={catIndex} />
+                  <CategoryCard link={`/men/${query.id}`} data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="my-12  ">
