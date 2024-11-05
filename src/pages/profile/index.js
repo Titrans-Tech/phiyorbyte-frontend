@@ -5,7 +5,7 @@ import { ProfileHeaderText, ProfileLayout } from "@/components/ui/profile";
 import { FormInput } from "@/components/Textfield/formInput";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { Footer } from "@/components/ui/footer";
-import { useFetchProfile } from "./_component/useUser";
+import { useFetchProfile } from "../../components/ui/profile/_component/useUser";
 import { useEffect, useState } from "react";
 import { BtnLoading } from "@/components/button/btnLoading";
 import { ComponentLoading } from "@/components/button/componentLoading";

@@ -8,7 +8,7 @@ import { GoDownload } from "react-icons/go";
 import { CiSearch } from "react-icons/ci";
 import { OrderHistoryUi } from "@/components/ui/profile/order-history";
 import { Footer } from "@/components/ui/footer";
-import { useFetchOrders } from "./_component/useUser";
+import { useFetchOrders } from "../../components/ui/profile/_component/useUser";
 import { ComponentLoading } from "@/components/button/componentLoading";
 import { EmptyComponent } from "@/components/emptyComponent";
 

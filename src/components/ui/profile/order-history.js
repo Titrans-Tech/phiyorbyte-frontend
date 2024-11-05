@@ -1,4 +1,4 @@
-import { useFetchOrders } from "@/pages/profile/_component/useUser";
+import { useFetchOrders } from "@/components/ui/profile/_component/useUser";
 import Image from "next/image";
 
 export const OrderHistoryUi = ({ orders }) => {
