@@ -8,7 +8,7 @@ export const CategoryCard = ({ data, link }) => {
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
       <div className="flex w-[200px] h-[200px] bg-[whitesmoke] items-center justify-center">
-        <Image src={""} width={200} height={200} alt="category-img" />
+        {/* <Image src={""} width={200} height={200} alt="category-img" /> */}
       </div>
       <section className="mt-2">
         <h3 className="text-base font-medium text-black">{data?.product_name}</h3>
