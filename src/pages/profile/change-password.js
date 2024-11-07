@@ -32,7 +32,7 @@ const ChangePassword = () => {
   } = useForm();
 
   const password = watch("password", "");
-  const user_details = JSON.parse(getStoredId("user_data"));
+  const user_details = getStoredId("user_data") && JSON.parse(getStoredId("user_data"));
 
   const handleChangePassword = async (data) => {
     try {
