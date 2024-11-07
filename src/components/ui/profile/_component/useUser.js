@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export const useFetchProfile = () => {
   const [loading, setLoading] = useState(false);
   const [profile, setProfile] = useState(null);
-  const user_details = JSON.parse(getStoredId("user_data"));
+  const user_details = getStoredId("user_data") && JSON.parse(getStoredId("user_data"));
 
   const getProfile = async () => {
     try {

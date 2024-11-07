@@ -10,9 +10,7 @@ import { getErrorMessage, getStoredId } from "@/utils";
 import { changePassword } from "@/service/user";
 import { useState } from "react";
 import Alerts from "@/components/alert";
-import { FaCheck } from "react-icons/fa";
 import { BtnLoading } from "@/components/button/btnLoading";
-import AppDialog from "@/components/modal";
 import { SuccessModal } from "@/components/successModal";
 import { useRouter } from "next/router";
 
