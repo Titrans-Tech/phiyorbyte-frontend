@@ -20,8 +20,7 @@ export const useFetchMenProducts = () => {
       const response = res.data;
       if (response) {
         setLoading(false);
-        setProduct(response?.product);
-        console.log(response);
+        setProduct(response?.data);
       }
     } catch (error) {
       setError(getErrorMessage(error));
@@ -48,8 +47,7 @@ export const useFetchWomenProducts = () => {
       const response = res.data;
       if (response) {
         setLoading(false);
-        setProduct(response?.product);
-        console.log(response);
+        setProduct(response?.data);
       }
     } catch (error) {
       setError(getErrorMessage(error));

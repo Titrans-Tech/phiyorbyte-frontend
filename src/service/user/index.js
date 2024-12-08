@@ -26,3 +26,15 @@ export const changePassword = async (ref_no, bodyData) => {
     throw error;
   }
 };
+
+// https://api.pdempire.co.uk/api/users/cart/myordersproduct
+
+export const viewProductOrders = async (bodyData) => {
+  try {
+    const response = await API.get(`/users/cart/myordersproduct`, bodyData);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+  // https://api.pdempire.co.uk/api/users/cart/myordersproduct
+};

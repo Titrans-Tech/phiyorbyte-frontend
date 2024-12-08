@@ -1,5 +1,6 @@
 import { BtnLoading } from "@/components/button/btnLoading";
 import { addCart } from "@/service/cart";
+import { addFavorite } from "@/service/favourite";
 import { getErrorMessage, getStoredId } from "@/utils";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -14,12 +15,15 @@ export const ProductItemsDetails = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState();
   const [count, setCount] = useState(1);
   const [pending, setPending] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [success, setSuccess] = useState({
     isSuccess: null,
     msg: "",
   });
   const [user, setUser] = useState(null);
   const router = useRouter().query;
+  console.log(product, "the product");
 
   const user_details = getStoredId("user_data");
 
@@ -34,7 +38,7 @@ export const ProductItemsDetails = ({ product }) => {
     };
     try {
       setPending(true);
-      const res = await addCart(user.id, bodyData);
+      const res = await addCart(product?.id, bodyData);
       const response = await res.data;
 
       if (response) {
@@ -55,6 +59,34 @@ export const ProductItemsDetails = ({ product }) => {
     }
   };
 
+  const addToFavourite = async () => {
+    const bodyData = {
+      user_id: router.id,
+      quantity: 1,
+    };
+    try {
+      setLoading(true);
+      const res = await addFavorite(product?.id, bodyData);
+      const response = await res.data;
+
+      if (response) {
+        setLoading(false);
+
+        setSuccess({
+          isSuccess: true,
+          msg: "Product Added successful",
+        });
+      }
+    } catch (error) {
+      setSuccess({
+        isSuccess: false,
+        msg: getErrorMessage(error),
+      });
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (success.isSuccess) {
       setTimeout(() => {
@@ -67,7 +99,16 @@ export const ProductItemsDetails = ({ product }) => {
     <div>
       <div className="flex gap-3 items-center">
         <h3 className="text-4xl font-black ">{product?.product_name}</h3>
-        <CiHeart fontSize={20} cursor="pointer" className="hover:text-black" />
+        {loading ? (
+          <BtnLoading />
+        ) : (
+          <CiHeart
+            onClick={addToFavourite}
+            fontSize={20}
+            cursor="pointer"
+            className="hover:text-black"
+          />
+        )}
       </div>
       <div className="flex my-1 items-center gap-1">
         <Rating

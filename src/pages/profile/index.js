@@ -8,8 +8,10 @@ import { Footer } from "@/components/ui/footer";
 import { useFetchProfile } from "../../components/ui/profile/_component/useUser";
 import { useEffect, useState } from "react";
 import { ComponentLoading } from "@/components/button/componentLoading";
+import { useRouter } from "next/router";
 
 const Profile = () => {
+  const router = useRouter();
   const { profile, loading } = useFetchProfile();
   const [phone, setPhone] = useState(profile?.phone || "");
   const [address, setAddress] = useState(profile?.address || "");
@@ -21,6 +23,11 @@ const Profile = () => {
       setAddress(profile?.address);
     }
   }, [profile]);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    router.push("/");
+  };
 
   return (
     <main className="">
@@ -84,7 +91,10 @@ const Profile = () => {
                     <button className="py-2 px-20 bg-black text-white rounded-full">
                       Save Changes
                     </button>
-                    <button className="py-2 px-20 bg-red-600 mt-4 block md:hidden text-white rounded-full">
+                    <button
+                      onClick={handleLogout}
+                      className="py-2 px-20 bg-red-600 mt-4 block md:hidden text-white rounded-full"
+                    >
                       Logout
                     </button>
                   </div>
