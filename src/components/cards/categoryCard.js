@@ -7,11 +7,11 @@ export const CategoryCard = ({ data, link }) => {
   // box-shadow: 0px 0px 14px 4px #00000014;
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
-      <div className="flex w-[200px] h-[200px] bg-[whitesmoke] items-center justify-center">
-        {/* <Image src={""} width={200} height={200} alt="category-img" /> */}
+      <div className="flex w-[200px] h-[200px] bg-[white] items-center justify-center">
+        <Image src={data?.images1} width={200} height={200} alt="category-img" />
       </div>
       <section className="mt-2">
-        <h3 className="text-base font-medium text-black">{data?.product_name}</h3>
+        <h3 className="text-base font-medium text-black">{data?.brand_name}</h3>
         <div className="flex items-center gap-1">
           <Rating
             initialRating={3.5}

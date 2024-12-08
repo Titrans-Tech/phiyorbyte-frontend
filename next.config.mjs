@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     // remotePatterns:["ik.imagekit.io"]
-    domains: ["ik.imagekit.io"], // Add other domains as needed
+    domains: ["ik.imagekit.io", "api.pdempire.co.uk"], // Add other domains as needed
   },
 };
 
