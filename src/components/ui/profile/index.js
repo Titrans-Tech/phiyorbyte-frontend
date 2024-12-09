@@ -19,6 +19,11 @@ export const ProfileLayout = ({ children }) => {
     );
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    router.push("/");
+  };
+
   return (
     <>
       <section
@@ -51,7 +56,11 @@ export const ProfileLayout = ({ children }) => {
                 <Link href={uri.link}>{uri.name}</Link>
               </li>
             ))}
-            <li className="absolute left-[40%] right-[40%] cursor-pointer bottom-2 text-center text-[#FF3333] text-sm font-medium ">
+            <li
+              role="button"
+              onClick={handleLogout}
+              className="absolute left-[40%] right-[40%] cursor-pointer bottom-2 text-center text-[#FF3333] text-sm font-medium "
+            >
               Logout
             </li>
           </ul>

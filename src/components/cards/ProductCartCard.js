@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -17,12 +18,13 @@ export const ProductCartCard = ({ fav }) => {
   return (
     <div className="border-b py-1 flex items-center justify-between">
       <div className="flex items-start gap-2">
-        <Image src={`/assets/category/${fav.img}`} width={70} height={70} alt="category-img" />
+        <img src={fav?.images1} alt="" className="w-[70px]" />
+        {/* <Image src={`/assets/category/${fav.img}`} width={70} height={70} alt="category-img" /> */}
         <div>
-          <h3 className="font-bold text-base">{fav.name}</h3>
-          <p className="text-sm font-normal">Size: Large</p>
-          <p className="text-sm font-normal">Color: {fav.color} </p>
-          <h2 className="font-bold text-lg">{fav.price}</h2>
+          <h3 className="font-bold text-base">{fav.product_name}</h3>
+          <p className="text-sm font-normal">Size: {fav?.product_size}</p>
+          <p className="text-sm font-normal">Color: {fav?.product_colors} </p>
+          <h2 className="font-bold text-lg">₦{fav?.amount}</h2>
         </div>
       </div>
       <div className="flex items-end gap-10 justify-end flex-col">
