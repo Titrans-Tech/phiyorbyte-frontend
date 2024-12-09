@@ -21,9 +21,8 @@ const Cart = () => {
       const response = await res.data;
       if (response) {
         setLoading(false);
-        setCart(response.order);
+        setCart(response?.data);
       }
-      console.log(response, "the response");
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -33,6 +32,8 @@ const Cart = () => {
   useEffect(() => {
     getCartOrder();
   }, []);
+
+  console.log(cart, "the cart");
   return (
     <section>
       <CustomLayout>
@@ -47,8 +48,8 @@ const Cart = () => {
             ) : cart?.length > 0 ? (
               <div className="md:grid grid-cols-2 items-start">
                 <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
-                  {favData.map((fav, favIndex) => (
-                    <ProductCartCard key={favIndex} fav={fav} />
+                  {cart?.map((fav, favIndex) => (
+                    <ProductCartCard getCartOrder={getCartOrder} key={favIndex} fav={fav} />
                   ))}
                 </div>
                 <CartSummary />
