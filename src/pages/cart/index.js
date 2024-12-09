@@ -44,7 +44,7 @@ const Cart = () => {
             </section>
             {loading ? (
               <ComponentLoading />
-            ) : cart.length > 0 ? (
+            ) : cart?.length > 0 ? (
               <div className="md:grid grid-cols-2 items-start">
                 <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
                   {favData.map((fav, favIndex) => (
