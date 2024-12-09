@@ -1,3 +1,4 @@
+import { getItemsBySubcategory } from "@/service/order";
 import { fetchUserOrders, fetchUserProfile } from "@/service/user";
 import { getStoredId } from "@/utils";
 import { useEffect, useState } from "react";
@@ -55,4 +56,26 @@ export const useFetchOrders = () => {
   }, []);
 
   return { loading, orders, getOrders };
+};
+
+export const useFetchPoductByCategory = () => {
+  const [loading, setLoading] = useState(false);
+  const [product, setProduct] = useState(null);
+
+  const getProduct = async (category) => {
+    try {
+      setLoading(true);
+      const res = await getItemsBySubcategory(category);
+      const response = await res.data;
+
+      if (response) {
+        setLoading(false);
+        setProduct(response?.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { loading, product, getProduct };
 };

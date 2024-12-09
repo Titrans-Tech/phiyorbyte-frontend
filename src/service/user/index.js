@@ -31,7 +31,7 @@ export const changePassword = async (ref_no, bodyData) => {
 
 export const viewProductOrders = async (bodyData) => {
   try {
-    const response = await API.get(`/users/cart/myordersproduct`, bodyData);
+    const response = await API.get(`/users/cart/viewmycartitems`, bodyData);
     return response;
   } catch (error) {
     throw error;

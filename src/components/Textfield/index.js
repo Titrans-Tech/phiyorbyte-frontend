@@ -22,12 +22,12 @@ export const TextField = ({
         <input
           name={name}
           {...register(name, isRequired)}
-          type="text"
+          type={type === "password" ? (view ? "text" : "password") : "text"}
           className="border-0 outline-0 placeholder:text-base placeholder:text-[#00000066] bg-[#F0F0F0] w-full"
           placeholder={placeholder}
         />
         {type == "password" && (
-          <div className="text-[#00000066] text-sm">
+          <div role="button" onClick={() => setView(!view)} className="text-[#00000066] text-sm">
             {view ? <IoEyeOutline /> : <IoEyeOffOutline />}
           </div>
         )}
