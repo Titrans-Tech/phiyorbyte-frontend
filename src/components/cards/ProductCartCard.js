@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { deleteCart } from "@/service/cart";
+import { getErrorMessage } from "@/utils";
 import Image from "next/image";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
-export const ProductCartCard = ({ fav }) => {
+export const ProductCartCard = ({ fav, getCartOrder }) => {
   const [items, setItems] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  console.log(fav, "the favourites");
 
   const incrementCart = () => {
     setItems((prevItems) => prevItems + 1);
@@ -13,6 +18,21 @@ export const ProductCartCard = ({ fav }) => {
 
   const decrementCart = () => {
     setItems((prevItems) => prevItems - 1);
+  };
+
+  const deleteCartItems = async () => {
+    try {
+      setLoading(true);
+      const res = await deleteCart(fav?.user_id);
+      const response = await res.data;
+      if (response) {
+        setLoading(false);
+        getCartOrder();
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log(getErrorMessage(error));
+    }
   };
 
   return (
@@ -28,7 +48,7 @@ export const ProductCartCard = ({ fav }) => {
         </div>
       </div>
       <div className="flex items-end gap-10 justify-end flex-col">
-        <RiDeleteBin6Fill color="red" cursor="pointer" fontSize={20} />
+        <RiDeleteBin6Fill onClick={deleteCartItems} color="red" cursor="pointer" fontSize={20} />
         <div className="bg-[#F0F0F0] flex items-center justify-around w-[80px] py-1 rounded-full px- ">
           <button disabled={items === 1} onClick={decrementCart}>
             <FaMinus />

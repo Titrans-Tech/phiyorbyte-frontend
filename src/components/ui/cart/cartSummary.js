@@ -1,9 +1,12 @@
+import { WithCommas } from "@/utils";
 import { useRouter } from "next/router";
 import { FiTag } from "react-icons/fi";
 import { GoArrowRight } from "react-icons/go";
 
-export const CartSummary = () => {
+export const CartSummary = ({ summary }) => {
   const router = useRouter();
+  console.log(summary, "the summary");
+  const totalAmount = summary?.reduce((acc, item) => acc + item.amount, 0);
 
   return (
     <section className="border w-full space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
@@ -11,19 +14,19 @@ export const CartSummary = () => {
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Subtotal</h3>
-          <p className="font-bold text-lg text-black">$565</p>
+          <p className="font-bold text-lg text-black">₦{WithCommas(totalAmount)}</p>
         </div>
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Discount (-20%)</h3>
-          <p className="font-bold text-lg text-[#FF3333]">$5</p>
+          <p className="font-bold text-lg text-[#FF3333]">₦0</p>
         </div>
         <div className="flex items-center border-b pb-2 justify-between">
           <h3 className="text-[#00000099] font-normal">Delivery Fee</h3>
-          <p className="font-bold text-lg text-black">$65</p>
+          <p className="font-bold text-lg text-black">₦0</p>
         </div>
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Total</h3>
-          <p className="font-bold text-lg text-black">$467</p>
+          <p className="font-bold text-lg text-black">₦{WithCommas(totalAmount)}</p>
         </div>
       </section>
       <section className="flex !mb-5 items-center gap-2 ">

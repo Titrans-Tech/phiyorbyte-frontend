@@ -46,13 +46,13 @@ const Cart = () => {
             {loading ? (
               <ComponentLoading />
             ) : cart?.length > 0 ? (
-              <div className="md:grid grid-cols-2 items-start">
+              <div className="md:grid grid-cols-2 gap-3 items-start">
                 <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
                   {cart?.map((fav, favIndex) => (
                     <ProductCartCard getCartOrder={getCartOrder} key={favIndex} fav={fav} />
                   ))}
                 </div>
-                <CartSummary />
+                <CartSummary summary={cart} />
               </div>
             ) : (
               <>

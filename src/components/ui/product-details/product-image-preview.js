@@ -1,4 +1,5 @@
-export const ProductImagePreview = () => {
+/* eslint-disable @next/next/no-img-element */
+export const ProductImagePreview = ({ product }) => {
   return (
     <div className="flex items-center gap-4">
       <div className="space-y-3">
@@ -9,7 +10,9 @@ export const ProductImagePreview = () => {
           ></div>
         ))}
       </div>
-      <div className="w-full bg-[whitesmoke] h-[50vh] rounded-md"></div>
+      <div className="w-full bg-[whitesmoke] h-[50vh] overflow-hidden rounded-md">
+        <img src={product?.images1} className="h-full w-full" alt="" />
+      </div>
     </div>
   );
 };
