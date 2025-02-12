@@ -206,7 +206,7 @@ export default function Home() {
               <>
                 <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                   {flashCategory.map((cat, catIndex) => (
-                    <CategoryCard data={cat} key={catIndex} />
+                    <CategoryCard isDisabled={true} data={cat} key={catIndex} />
                   ))}
                 </section>
                 <div className="flex items-center mt-9 justify-center">
