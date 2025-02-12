@@ -65,15 +65,12 @@ export const Hero = () => {
     setCurrent((prevIndex) => (prevIndex === imgCarousel.length - 1 ? 0 : prevIndex + 1));
   };
   return (
-    <section
-      style={{ background: imgCarousel[current]?.bg }}
-      className="w-full md:h-[80vh] overflow-hidden "
-    >
+    <section style={{ background: imgCarousel[current]?.bg }} className="w-full overflow-hidden ">
       <CustomWrapper>
         <section>
           <MdOutlineKeyboardArrowLeft
             onClick={prevImg}
-            className="hidden md:block absolute -left-2 top-[50%]"
+            className="hidden cursor-pointer md:block absolute -left-2 top-[50%]"
             color={imgCarousel[current]?.fontColor}
             fontSize={100}
           />
@@ -81,7 +78,7 @@ export const Hero = () => {
             color={imgCarousel[current]?.fontColor}
             fontSize={100}
             onClick={prevImg}
-            className="hidden md:block  absolute right-10 top-[50%]"
+            className="hidden cursor-pointer md:block  absolute right-10 top-[50%]"
           />
         </section>
         <section className="px-5 md:px-12 md:flex items-center justify-center py-3">
