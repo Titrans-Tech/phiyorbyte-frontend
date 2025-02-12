@@ -23,7 +23,6 @@ export const ProductItemsDetails = ({ product }) => {
   });
   const [user, setUser] = useState(null);
   const router = useRouter().query;
-  console.log(product, "the product");
 
   const user_details = getStoredId("user_data");
 
@@ -33,7 +32,7 @@ export const ProductItemsDetails = ({ product }) => {
 
   const addToCart = async () => {
     const bodyData = {
-      user_id: router.id,
+      user_id: user?.id,
       quantity: count,
     };
     try {

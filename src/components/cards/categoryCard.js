@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
-export const CategoryCard = ({ data, link }) => {
+export const CategoryCard = ({ data, link, isDisabled }) => {
   // box-shadow: 0px 0px 14px 4px #00000014;
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
@@ -11,7 +11,7 @@ export const CategoryCard = ({ data, link }) => {
         <Image src={data?.images1} width={200} height={200} alt="category-img" />
       </div>
       <section className="mt-2">
-        <h3 className="text-base font-medium text-black">{data?.brand_name}</h3>
+        <h3 className="text-base font-medium text-black">{data?.brand_name || "Special Brand"}</h3>
         <div className="flex items-center gap-1">
           <Rating
             initialRating={3.5}
@@ -21,22 +21,22 @@ export const CategoryCard = ({ data, link }) => {
             stop={5}
             step={1}
           />
-          <p className="font-normal text-sm -mt-1">{data.rating}/5</p>
+          <p className="font-normal text-sm -mt-1">{data.rating || 0}/5</p>
         </div>
         <div className="flex items-center justify-start gap-2">
-          <p className="font-bold text-lg">${data?.purchase_price}</p>
+          <p className="font-bold text-lg">${data?.purchase_price || 0}</p>
           {data?.amount && (
             <>
-              <p className="font-bold text-lg line-through text-[#00000066]">${data.amount}</p>
+              <p className="font-bold text-lg line-through text-[#00000066]">${data.amount || 0}</p>
               <div className="bg-[#FF33331A] text-xs font-medium py- px-1 rounded-full">
-                -{data?.discount}%
+                -{data?.discount || 0.0}%
               </div>
             </>
           )}
         </div>
       </section>
       <button className=" w-4/5 py-2 left-5 hidden group-hover:block  absolute top-[150px] bg-black text-white rounded-full font-medium text-sm">
-        <Link href={`${link}/${data?.ref_no}`}>Add to Cart</Link>
+        {isDisabled ? "Add to Cart" : <Link href={`${link}/${data?.ref_no}`}>Add to Cart</Link>}
       </button>
     </div>
   );

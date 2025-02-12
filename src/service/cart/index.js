@@ -10,9 +10,9 @@ export const addCart = async (id, bodyData) => {
 };
 // cart/deleteartproduct/10
 
-export const deleteCart = async (id, bodyData) => {
+export const deleteCart = async (id) => {
   try {
-    const response = await API.post(`/cart/deleteartproduct/${id}`, bodyData);
+    const response = await API.get(`/cart/deleteartproduct/${id}`);
     return response;
   } catch (error) {
     throw error;
