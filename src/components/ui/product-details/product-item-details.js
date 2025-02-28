@@ -9,7 +9,7 @@ import { FaRegStar, FaStar, FaCheck, FaMinus, FaPlus } from "react-icons/fa";
 import Rating from "react-rating";
 
 export const ProductItemsDetails = ({ product }) => {
-  const colors = ["#4F4631", "#314F4A", "#31344F"];
+  const colors = [product?.product_colors];
   const size = ["Small", "Medium", "Large", "X-Large"];
   const [current, setCurrent] = useState(0);
   const [selectedSize, setSelectedSize] = useState();
@@ -97,12 +97,12 @@ export const ProductItemsDetails = ({ product }) => {
   return (
     <div>
       <div className="flex gap-3 items-center">
-        <h3 className="text-4xl font-black ">{product?.product_name}</h3>
+        <h3 className="text-4xl font-black ">{product?.brand_name}</h3>
         {loading ? (
           <BtnLoading />
         ) : (
           <CiHeart
-            onClick={addToFavourite}
+            // onClick={addToFavourite}
             fontSize={20}
             cursor="pointer"
             className="hover:text-black"
@@ -148,20 +148,24 @@ export const ProductItemsDetails = ({ product }) => {
       </div>
       <div className="border-b my-2"></div>
       <div>
-        <p className="text-[#00000099]">Choose size</p>
-        <div className="mt-2 flex flex-wrap items-center gap-3">
-          {size.map((sl, slIndex) => (
-            <button
-              onClick={() => setSelectedSize(sl)}
-              key={slIndex}
-              className={`px-4 py-1 ${
-                selectedSize === sl ? "bg-black text-white" : "bg-[#F0F0F0] text-black"
-              }  text-base  rounded-full w-fit`}
-            >
-              {sl}
-            </button>
-          ))}
-        </div>
+        <p className="text-[#00000099]"> Size</p>
+        {product?.product_size ? (
+          product?.product_size
+        ) : (
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            {size.map((sl, slIndex) => (
+              <button
+                onClick={() => setSelectedSize(sl)}
+                key={slIndex}
+                className={`px-4 py-1 ${
+                  selectedSize === sl ? "bg-black text-white" : "bg-[#F0F0F0] text-black"
+                }  text-base  rounded-full w-fit`}
+              >
+                {sl}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <div className="border-b my-2"></div>
       <div className="flex items-center gap-3">

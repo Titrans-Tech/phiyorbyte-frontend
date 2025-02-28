@@ -27,3 +27,12 @@ export const logoutUser = async () => {
     throw error;
   }
 };
+
+export const recoverPassword = async (bodyData) => {
+  try {
+    const response = await axios.post(`${base_url}users/forgot-password`, bodyData);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

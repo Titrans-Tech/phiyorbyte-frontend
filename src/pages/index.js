@@ -169,7 +169,7 @@ export default function Home() {
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
               <section className="flex flex-wrap  gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
-                  <CategoryCard data={cat} key={catIndex} />
+                  <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="flex items-center mt-9 justify-center">
@@ -265,7 +265,7 @@ export default function Home() {
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
               <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {womenProduct?.map((cat, catIndex) => (
-                  <CategoryCard data={cat} key={catIndex} />
+                  <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="flex items-center mt-9 justify-center">

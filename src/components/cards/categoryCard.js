@@ -4,11 +4,12 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
 export const CategoryCard = ({ data, link, isDisabled }) => {
-  // box-shadow: 0px 0px 14px 4px #00000014;
+  const image = data.images1 ? data?.images1[0] : "";
+
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
       <div className="flex w-[200px] h-[200px] bg-[white] items-center justify-center">
-        <Image src={data?.images1} width={200} height={200} alt="category-img" />
+        <Image src={image} width={200} height={200} alt="category-img" />
       </div>
       <section className="mt-2">
         <h3 className="text-base font-medium text-black">{data?.brand_name || "Special Brand"}</h3>
