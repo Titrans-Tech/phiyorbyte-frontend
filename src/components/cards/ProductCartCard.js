@@ -23,7 +23,7 @@ export const ProductCartCard = ({ fav, getCartOrder }) => {
   const deleteCartItems = async () => {
     try {
       setLoading(true);
-      const res = await deleteCart(fav?.user_id);
+      const res = await deleteCart(fav?.id);
       const response = await res.data;
       if (response) {
         setLoading(false);
@@ -38,7 +38,7 @@ export const ProductCartCard = ({ fav, getCartOrder }) => {
   return (
     <div className="border-b py-1 flex items-center justify-between">
       <div className="flex items-start gap-2">
-        <img src={fav?.images1} alt="" className="w-[70px]" />
+        <img src={fav?.images1[0]} alt="" className="w-[70px]" />
         {/* <Image src={`/assets/category/${fav.img}`} width={70} height={70} alt="category-img" /> */}
         <div>
           <h3 className="font-bold text-base">{fav.product_name}</h3>

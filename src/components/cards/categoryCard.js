@@ -4,7 +4,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
 export const CategoryCard = ({ data, link, isDisabled }) => {
-  const image = data.images1 ? data?.images1[0] : "";
+  const image = data.images1 ? data?.images1[0] : "/assets/placeholder-img.png";
 
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
