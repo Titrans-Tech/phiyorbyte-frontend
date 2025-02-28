@@ -6,6 +6,10 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import ValidationMessage from "@/components/validationMessage";
+import { useState } from "react";
+import { getErrorMessage } from "@/utils";
+import { recoverPassword } from "@/service/auth";
+import Alerts from "@/components/alert";
 
 export const ForgotPasswordModal = ({ openVerify, isOpen, onClose }) => {
   const {
@@ -15,9 +19,29 @@ export const ForgotPasswordModal = ({ openVerify, isOpen, onClose }) => {
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState({
+    isErr: false,
+    errMsg: "",
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      const res = await recoverPassword({ email: data.email });
+      const response = await res.data;
+      if (response) {
+        setLoading(false);
+        openVerify();
+      }
+    } catch (error) {
+      setLoading(false);
+      setErr({
+        isErr: true,
+        errMsg: getErrorMessage(error),
+      });
+    }
     console.log(data);
-    openVerify();
   };
 
   return (
@@ -37,6 +61,11 @@ export const ForgotPasswordModal = ({ openVerify, isOpen, onClose }) => {
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <Alerts
+              show={err.isErr}
+              message={err.errMsg}
+              close={() => setErr({ ...err, isErr: false })}
+            />
             <section className="my-2">
               <TextField
                 label="Email Address"
@@ -54,7 +83,7 @@ export const ForgotPasswordModal = ({ openVerify, isOpen, onClose }) => {
               />
               <ValidationMessage name="email" errors={errors} />
             </section>
-            <PrimaryButton>Reset Password</PrimaryButton>
+            <PrimaryButton loading={loading}>Reset Password</PrimaryButton>
           </form>
         </div>
       </div>

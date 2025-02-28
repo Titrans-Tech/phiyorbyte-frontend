@@ -71,7 +71,7 @@ export const womenCategory = [
 export const flashCategory = [
   {
     product_name: "T-SHIRT WITH TAPE DETAILS",
-    images1: "https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219330.jpeg",
+    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219330.jpeg"],
     rating: 3.5,
     amount: "240",
     discount: 200,
@@ -82,7 +82,7 @@ export const flashCategory = [
   },
   {
     name: "SKINNY FIT JEANS",
-    images1: "https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226968.jpeg",
+    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226968.jpeg"],
     rating: 3,
     amount: "240",
     discount: 200,
@@ -93,7 +93,7 @@ export const flashCategory = [
   },
   {
     name: "CHECKERED SHIRT",
-    images1: "https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219441.jpeg",
+    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219441.jpeg"],
     rating: 4.5,
     amount: "240",
     discount: 200,
@@ -104,7 +104,7 @@ export const flashCategory = [
   },
   {
     name: "SLEEVE STRIPED T-SHIRT",
-    images1: "https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226855.jpeg",
+    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226855.jpeg"],
     rating: 5,
     amount: "240",
     discount: 200,
@@ -175,7 +175,7 @@ export const faqs = [
 export const newArivalData = [
   {
     name: "T-SHIRT WITH TAPE DETAILS",
-    images1: "/assets/category/men1.png",
+    images1: ["/assets/category/men1.png"],
     rating: 3.5,
     amount: "240",
     discount: 200,
@@ -186,7 +186,7 @@ export const newArivalData = [
   },
   {
     name: "SKINNY FIT JEANS",
-    images1: "/assets/category/men2.png",
+    images1: ["/assets/category/men2.png"],
     rating: 3,
     amount: "240",
     discount: 200,
@@ -197,7 +197,7 @@ export const newArivalData = [
   },
   {
     name: "CHECKERED SHIRT",
-    images1: "/assets/category/men3.png",
+    images1: ["/assets/category/men3.png"],
     rating: 4.5,
     amount: "240",
     discount: 200,
@@ -208,7 +208,7 @@ export const newArivalData = [
   },
   {
     name: "SLEEVE STRIPED T-SHIRT",
-    images1: "/assets/category/new2.png",
+    images1: ["/assets/category/new2.png"],
     rating: 5,
     amount: "240",
     discount: 200,
@@ -219,7 +219,7 @@ export const newArivalData = [
   },
   {
     name: "T-SHIRT WITH TAPE DETAILS",
-    images1: "/assets/category/women2.png",
+    images1: ["/assets/category/women2.png"],
     rating: 3.5,
     amount: "240",
     discount: 200,
@@ -230,7 +230,7 @@ export const newArivalData = [
   },
   {
     name: "SKINNY FIT JEANS",
-    images1: "/assets/category/women1.png",
+    images1: ["/assets/category/women1.png"],
     rating: 3,
     amount: "240",
     discount: 200,
@@ -241,7 +241,7 @@ export const newArivalData = [
   },
   {
     name: "CHECKERED SHIRT",
-    images1: "/assets/category/new2.png",
+    images1: ["/assets/category/new2.png"],
     rating: 4.5,
     amount: "240",
     discount: 200,
@@ -252,7 +252,7 @@ export const newArivalData = [
   },
   {
     name: "SLEEVE STRIPED T-SHIRT",
-    images1: "/assets/category/new1.png",
+    images1: ["/assets/category/new1.png"],
     rating: 5,
     amount: "240",
     discount: 200,
@@ -263,7 +263,7 @@ export const newArivalData = [
   },
   {
     name: "T-SHIRT WITH TAPE DETAILS",
-    images1: "/assets/category/flash4.png",
+    images1: ["/assets/category/flash4.png"],
     rating: 3.5,
     amount: "240",
     discount: 200,
@@ -274,7 +274,7 @@ export const newArivalData = [
   },
   {
     name: "SKINNY FIT JEANS",
-    images1: "/assets/category/flash3.png",
+    images1: ["/assets/category/flash3.png"],
     rating: 3,
     amount: "240",
     discount: 200,
@@ -285,7 +285,7 @@ export const newArivalData = [
   },
   {
     name: "CHECKERED SHIRT",
-    images1: "/assets/category/flash2.png",
+    images1: ["/assets/category/flash2.png"],
     rating: 4.5,
     amount: "240",
     discount: 200,
@@ -296,7 +296,7 @@ export const newArivalData = [
   },
   {
     name: "SLEEVE STRIPED T-SHIRT",
-    images1: "/assets/category/flash1.png",
+    images1: ["/assets/category/flash1.png"],
     rating: 5,
     amount: "240",
     discount: 200,

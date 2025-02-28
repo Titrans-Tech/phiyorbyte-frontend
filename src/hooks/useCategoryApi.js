@@ -102,7 +102,7 @@ export const useFetchProductDetails = () => {
       const response = res.data;
       if (response) {
         setLoading(false);
-        setProduct(response?.product);
+        setProduct(response?.data);
         console.log(response);
       }
     } catch (error) {

@@ -24,6 +24,8 @@ const ProductDetails = () => {
     }
   }, [router.isReady]);
 
+  console.log(product, "THE PRODUCT");
+
   return (
     <section>
       <CustomLayout>
@@ -55,34 +57,22 @@ const ProductDetails = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="md:grid grid-cols-2 gap-8">
+                  <div className="md:grid grid-cols-2 gap-8 pb-14">
                     <div>
                       <div className="border-b pb-3 my-2">
                         <h4 className="text-base font-bold text-black">Description</h4>
-                        <p className="text-black font-normal">
-                          One life graphic T-shirt is provide the fit and comfort you expect with
-                          stylish vintage cali-themed prints. Check out each of the graphic
-                          collections available from Hanes.
-                        </p>
+                        <p className="text-black font-normal">{product?.body}</p>
                       </div>
                       <div className="border-b pb-3 my-2">
                         <h4 className="text-base font-bold text-black">About this item</h4>
                         <ul className="list-disc">
                           <li className="text-black font-normal">
-                            Soft, lightweight 100% cotton jersey
+                            Product Category : {product?.categoryname}
                           </li>
-                          <li className="text-black font-normal">
-                            Either tagless or with easily removed tearaway tag for comfort.
-                          </li>
-                          <li className="text-black font-normal">
-                            Machine wash cold with like colors, inside out if decorated
-                          </li>
-                          <li className="text-black font-normal">
-                            Cool iron if needed. Do not iron decoration
-                          </li>
+                          <li className="text-black font-normal">Quantity: {product?.quantity}</li>
                         </ul>
                       </div>
-                      <div className="border-b pb-3 my-2">
+                      {/* <div className="border-b pb-3 my-2">
                         <h4 className="text-base font-bold text-black">Key features</h4>
                         <ul className="list-disc">
                           <li className="text-black font-normal">Comfortable</li>
@@ -90,9 +80,9 @@ const ProductDetails = () => {
                           <li className="text-black font-normal">Graphics</li>
                           <li className="text-black font-normal">Nice</li>
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="border-b pb-3 my-2">
+                    {/* <div className="border-b pb-3 my-2">
                       <h4 className="text-base font-bold text-black">Key features</h4>
                       <ul className="list-disc">
                         <li className="text-black font-normal">SKU: FA203MW05GE12NAFAMZ</li>
@@ -107,7 +97,7 @@ const ProductDetails = () => {
                           graphics.
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </>
