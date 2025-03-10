@@ -13,7 +13,6 @@ export const PaymentSummary = ({ cart, address }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(true);
   const [user, setUser] = useState(null);
-  const { delivery_address, delivery_phone, delivery_state, delivery_city, email, phone } = address;
   const [state, setState] = useState("initial");
   const [err, setErr] = useState({
     isErr: false,
@@ -51,12 +50,12 @@ export const PaymentSummary = ({ cart, address }) => {
     const body = {
       amount: cart,
       pick_station: "Doorpost",
-      delivery_address,
-      delivery_phone,
-      delivery_state,
-      delivery_city,
-      email,
-      phone,
+      delivery_address: address.delivery_address,
+      delivery_phone: address.delivery_phone,
+      delivery_state: address.delivery_state,
+      delivery_city: address.delivery_city,
+      email: address.email,
+      phone: address.phone,
     };
     try {
       setState("loading");
