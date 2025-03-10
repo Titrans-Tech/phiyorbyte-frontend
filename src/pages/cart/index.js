@@ -7,33 +7,14 @@ import { CustomWrapper } from "@/components/layout/customWrapper";
 import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CartSummary } from "@/components/ui/cart/cartSummary";
 import { Footer } from "@/components/ui/footer";
+import { useFetchCart } from "@/hooks/useFetchCart";
 import { viewProductOrders } from "@/service/user";
 import { favData } from "@/utils/data";
 import { useEffect, useState } from "react";
 
 const Cart = () => {
-  const [loading, setLoading] = useState(false);
-  const [cart, setCart] = useState([]);
-  const getCartOrder = async () => {
-    try {
-      setLoading(true);
-      const res = await viewProductOrders();
-      const response = await res.data;
-      if (response) {
-        setLoading(false);
-        setCart(response?.data);
-      }
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  };
+  const { cart, loading, totalAmount, getCartOrder } = useFetchCart();
 
-  useEffect(() => {
-    getCartOrder();
-  }, []);
-
-  console.log(cart, "the cart");
   return (
     <section>
       <CustomLayout>
@@ -52,7 +33,7 @@ const Cart = () => {
                     <ProductCartCard getCartOrder={getCartOrder} key={favIndex} fav={fav} />
                   ))}
                 </div>
-                <CartSummary summary={cart} />
+                <CartSummary summary={totalAmount} />
               </div>
             ) : (
               <>

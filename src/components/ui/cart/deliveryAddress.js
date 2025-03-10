@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-export const DeliveryAddress = () => {
+export const DeliveryAddress = ({ cart }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -51,8 +51,8 @@ export const DeliveryAddress = () => {
             </div>
           </div>
           <div className="border rounded grid grid-cols-2 gap-2 py-2 px-2">
-            {Array.from({ length: 4 }).map((dta, dtaIndex) => (
-              <CheckoutItems key={dtaIndex} />
+            {cart?.map((dta, dtaIndex) => (
+              <CheckoutItems cartItem={dta} key={dtaIndex} />
             ))}
           </div>
         </div>
@@ -61,17 +61,17 @@ export const DeliveryAddress = () => {
   );
 };
 
-export const CheckoutItems = () => {
+export const CheckoutItems = ({ cartItem }) => {
   return (
     <div className="flex items-center gap-2">
       <Image src={`/assets/category/women1.png`} width={56} height={56} alt="category-img" />
       <div>
-        <h3 className="text-sm font-bold text-black">Gradient Graphic T-shirt</h3>
+        <h3 className="text-sm font-bold text-black">{cartItem?.product_name}</h3>
         <p className="text-[10px] font-normal text-black">
-          Size: <span className="text-[#00000099]">Large</span>
+          Size: <span className="text-[#00000099]">{cartItem?.product_size}</span>
         </p>
         <p className="text-[10px] font-normal text-black">
-          Color: <span className="text-[#00000099]">White</span>
+          Amount: <span className="text-[#00000099]">₦{cartItem?.total}</span>
         </p>
       </div>
     </div>

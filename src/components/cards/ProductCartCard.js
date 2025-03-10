@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { deleteCart } from "@/service/cart";
-import { getErrorMessage } from "@/utils";
+import { getErrorMessage, WithCommas } from "@/utils";
 import Image from "next/image";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -9,8 +9,6 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 export const ProductCartCard = ({ fav, getCartOrder }) => {
   const [items, setItems] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  console.log(fav, "the favourites");
 
   const incrementCart = () => {
     setItems((prevItems) => prevItems + 1);
@@ -44,7 +42,7 @@ export const ProductCartCard = ({ fav, getCartOrder }) => {
           <h3 className="font-bold text-base">{fav.product_name}</h3>
           <p className="text-sm font-normal">Size: {fav?.product_size}</p>
           <p className="text-sm font-normal">Color: {fav?.product_colors} </p>
-          <h2 className="font-bold text-lg">₦{fav?.amount}</h2>
+          <h2 className="font-bold text-lg">₦{WithCommas(fav?.amount)}</h2>
         </div>
       </div>
       <div className="flex items-end gap-10 justify-end flex-col">

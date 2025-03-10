@@ -2,7 +2,7 @@ import { API } from "..";
 
 export const addCart = async (id, bodyData) => {
   try {
-    const response = await API.post(`/cart/add/${id}`, bodyData);
+    const response = await API.post(`/carts/add/${id}`, bodyData);
     return response;
   } catch (error) {
     throw error;
