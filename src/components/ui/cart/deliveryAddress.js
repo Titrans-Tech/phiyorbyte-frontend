@@ -19,7 +19,7 @@ export const DeliveryAddress = ({ cart }) => {
       </div>
       {isOpen && (
         <div>
-          <div className="flex my-2 items-baseline gap-2">
+          {/* <div className="flex my-2 items-baseline gap-2">
             <input
               className="w-4 h-4 accent-black "
               type="radio"
@@ -49,7 +49,7 @@ export const DeliveryAddress = ({ cart }) => {
                 straight to your door, hassle-free and right when you need it!
               </p>
             </div>
-          </div>
+          </div> */}
           <div className="border rounded grid grid-cols-2 gap-2 py-2 px-2">
             {cart?.map((dta, dtaIndex) => (
               <CheckoutItems cartItem={dta} key={dtaIndex} />

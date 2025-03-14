@@ -31,14 +31,14 @@ const CartCheckout = () => {
               <div className="mt-5 grid md:grid-cols-2 items-start  gap-5">
                 <div className=" border rounded-md py-3 px-3 border-[#0000001A]">
                   <CustomerAddress updateAddress={(address) => setSavedAddress(address)} />
-                  <DeliveryAddress cart={cart} />
-                  <p
+                  {/* <DeliveryAddress cart={cart} /> */}
+                  {/* <p
                     onClick={() => router.push("/cart")}
                     role="button"
                     className="text-lg border-b-2 border-black w-fit mx-auto my-4 flex items-center justify-center font-bold text-black"
                   >
                     Modify cart
-                  </p>
+                  </p> */}
                 </div>
                 <PaymentSummary address={savedAddress} cart={totalAmount} />
               </div>
