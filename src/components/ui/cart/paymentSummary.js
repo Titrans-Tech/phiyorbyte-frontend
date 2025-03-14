@@ -86,7 +86,7 @@ export const PaymentSummary = ({ cart, address }) => {
       </div>
       {isOpen && (
         <div>
-          <div className="flex my-2 items-baseline gap-2">
+          {/* <div className="flex my-2 items-baseline gap-2">
             <input
               className="w-4 h-4 accent-black "
               type="radio"
@@ -117,7 +117,7 @@ export const PaymentSummary = ({ cart, address }) => {
                 your own convenience!
               </p>
             </div>
-          </div>
+          </div> */}
           <section className="my-2">
             <h3 className="font-bold text-2xl text-black">Order Summary</h3>
             <div className="flex my-2 items-center justify-between">

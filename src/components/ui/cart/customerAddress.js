@@ -7,6 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export const CustomerAddress = ({ updateAddress }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isSaved, setIsSaved] = useState(true);
   const {
     register,
     handleSubmit,
@@ -15,6 +16,7 @@ export const CustomerAddress = ({ updateAddress }) => {
 
   const handleChange = (data) => {
     updateAddress(data);
+    setIsSaved(false);
   };
 
   return (
@@ -99,10 +101,12 @@ export const CustomerAddress = ({ updateAddress }) => {
             {/* <SelectField label="State" placeholder="Select state" />
             <SelectField label="City" placeholder="Select city" /> */}
           </div>
-          <div className="w-full flex items-center justify-end gap-3">
-            <button className="text-[#00000066]">Cancel</button>
-            <button className="py-2 rounded-full px-3 bg-black text-white">Save</button>
-          </div>
+          {isSaved && (
+            <div className="w-full flex items-center justify-end gap-3">
+              <button className="text-[#00000066]">Cancel</button>
+              <button className="py-2 rounded-full px-3 bg-black text-white">Save</button>
+            </div>
+          )}
         </form>
       )}
     </section>
