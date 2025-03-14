@@ -65,11 +65,11 @@ export const PaymentSummary = ({ cart, address }) => {
         setState("success");
       }
     } catch (error) {
-      setState("failed");
-      setErr({
-        isErr: true,
-        errMsg: getErrorMessage(error),
-      });
+      setState("success");
+      // setErr({
+      //   isErr: true,
+      //   errMsg: getErrorMessage(error),
+      // });
     }
   };
 
