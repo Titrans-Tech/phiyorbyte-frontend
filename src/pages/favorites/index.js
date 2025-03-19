@@ -12,7 +12,9 @@ import Link from "next/link";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
 const Favourites = () => {
-  const { loading, favourites } = useGetFavourite();
+  const { isLoading, favourites } = useGetFavourite();
+
+  console.log(favourites, "THE FAVORITES");
   return (
     <section>
       <CustomLayout>
@@ -21,11 +23,11 @@ const Favourites = () => {
             <Breadcrumb url="Favourites" />
             <section className="mb-20 mt-5">
               <ComponentTitle title="Favourites" />
-              {loading ? (
+              {isLoading ? (
                 <ComponentLoading />
               ) : (
                 <>
-                  {favourites?.length > 0 ? (
+                  {favourites?.data?.length > 0 ? (
                     <div className="border space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
                       {favData.map((fav, favIndex) => (
                         <div

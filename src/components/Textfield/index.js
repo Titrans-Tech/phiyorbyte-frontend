@@ -17,13 +17,17 @@ export const TextField = ({
           {label}
         </label>
       )}
-      <section className="bg-[#F0F0F0] relative overflow-hidden  mt-2  rounded-[62px] h-12 w-full flex gap-3 items-center justify-start ">
-        <span className="text-[#00000066] relative left-1  text-sm">{icon}</span>
+      <section className="bg-[#F0F0F0] relative overflow-hidden  mt-2  rounded-[62px] h-12 w-full flex gap-3 items-center justify-start    border border-[#525866] ">
+        <span className="absolute top-[50%] translate-y-[-50%] z-[1] left-[10px] text-[#00000066]  text-sm">
+          {icon}
+        </span>
         <input
           name={name}
           {...register(name, isRequired)}
           type={type === "password" ? (view ? "text" : "password") : "text"}
-          className="border-0  h-full    outline-0 placeholder:text-base placeholder:text-[#00000066] bg-[#F0F0F0] w-full"
+          className={`w-full relative ${
+            icon ? "px-[36px]" : "px-[10px]"
+          }  h-full px-2  border-0  placeholder:text-sm outline-none bg-transparent focus:bg-transparent `}
           placeholder={placeholder}
         />
         {type == "password" && (

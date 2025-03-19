@@ -15,8 +15,6 @@ const CartCheckout = () => {
   const { cart, loading, totalAmount } = useFetchCart();
   const [savedAddress, setSavedAddress] = useState(null);
 
-  console.log(savedAddress, "THE ADDRESS");
-
   return (
     <section>
       <CustomLayout>

@@ -24,8 +24,6 @@ const ProductDetails = () => {
     }
   }, [router.isReady]);
 
-  console.log(product, "THE PRODUCT");
-
   return (
     <section>
       <CustomLayout>

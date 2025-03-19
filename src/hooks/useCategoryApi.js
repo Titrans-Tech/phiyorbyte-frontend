@@ -6,6 +6,7 @@ import {
 } from "@/service/category";
 import { getFavourites } from "@/service/favourite";
 import { getErrorMessage } from "@/utils";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 export const useFetchMenProducts = () => {
@@ -115,6 +116,8 @@ export const useFetchProductDetails = () => {
 };
 
 export const useGetFavourite = () => {
+  const query = useQuery({ queryKey: ["favourites"], queryFn: getFavourites });
+  const { data, isError, isLoading } = query;
   const [loading, setLoading] = useState(false);
   const [favourites, setFavourites] = useState([]);
   const [error, setError] = useState(null);
@@ -134,8 +137,8 @@ export const useGetFavourite = () => {
     }
   };
 
-  useEffect(() => {
-    getFavouritessDetails();
-  }, []);
-  return { loading, error, favourites, getFavouritessDetails };
+  // useEffect(() => {
+  //   getFavouritessDetails();
+  // }, []);
+  return { isLoading, isError, favourites: data?.data };
 };

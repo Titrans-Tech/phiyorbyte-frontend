@@ -60,11 +60,11 @@ const SignupScreen = () => {
 
   const password = watch("password", "");
   return (
-    <section className="min-h-screen md:grid grid-cols-2 items-start gap-2 bg-white">
-      <div className="min-h-[100vh] hidden md:block  overflow-hidden">
+    <section className=" md:grid grid-cols-2 items-start gap-2 bg-white">
+      <div className=" h-[100vh] hidden md:block  overflow-hidden">
         <Image src="/assets/authImg1.png" alt="" height={100} width={700} className="w-full" />
       </div>
-      <div className="py-5  w-full max-w-sm  min-h-screen mx-auto">
+      <div className="py-5  w-full max-w-xl overflow overflow-scroll scroll_hide  h-screen mx-auto">
         <div className="flex items-center justify-center">
           <Link href="/">
             {" "}

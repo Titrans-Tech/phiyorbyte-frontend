@@ -68,7 +68,7 @@ const LoginScreen = () => {
           <Image src="/assets/authImg2.png" alt="" height={100} width={700} className="w-full" />
         </div>
         <div className="flex items-center justify-center flex-col min-h-screen">
-          <div className="py-5 pt-12   w-full max-w-sm  min-h-screen mx-auto">
+          <div className="py-5 pt-12   w-full max-w-xl  min-h-screen mx-auto">
             <div className="flex items-center justify-center">
               <Link href="/">
                 {" "}

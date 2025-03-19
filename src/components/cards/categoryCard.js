@@ -1,3 +1,4 @@
+import { WithCommas } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegStar, FaStar } from "react-icons/fa";
@@ -8,8 +9,8 @@ export const CategoryCard = ({ data, link, isDisabled }) => {
 
   return (
     <div className="relative group hover:shadow-[0px_0px_14px_4px_#00000014] p-2  rounded-md">
-      <div className="flex w-[200px] h-[200px] bg-[white] items-center justify-center">
-        <Image src={image} width={200} height={200} alt="category-img" />
+      <div className="flex w-[200px] h-[200px] overflow-hidden  bg-[white]  items-center justify-center">
+        <Image src={image} width={200} height={200} alt="category-img" className="b" />
       </div>
       <section className="mt-2">
         <h3 className="text-base font-medium text-black">{data?.brand_name || "Special Brand"}</h3>
@@ -25,10 +26,12 @@ export const CategoryCard = ({ data, link, isDisabled }) => {
           <p className="font-normal text-sm -mt-1">{data.rating || 0}/5</p>
         </div>
         <div className="flex items-center justify-start gap-2">
-          <p className="font-bold text-lg">${data?.purchase_price || 0}</p>
+          <p className="font-bold text-lg">₦{WithCommas(data?.purchase_price) || 0}</p>
           {data?.amount && (
             <>
-              <p className="font-bold text-lg line-through text-[#00000066]">${data.amount || 0}</p>
+              <p className="font-bold text-lg line-through text-[#00000066]">
+                ₦{WithCommas(data.amount) || 0}
+              </p>
               <div className="bg-[#FF33331A] text-xs font-medium py- px-1 rounded-full">
                 -{data?.discount || 0.0}%
               </div>

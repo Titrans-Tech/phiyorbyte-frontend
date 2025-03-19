@@ -3,11 +3,10 @@ import { useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 export const ProductImagePreview = ({ product }) => {
-  console.log(product, "THE PRODUCT");
   const [current, setCurrent] = useState(0);
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-start gap-4">
       <div className="space-y-3">
         {product?.images1?.map((arr, index) => (
           <div

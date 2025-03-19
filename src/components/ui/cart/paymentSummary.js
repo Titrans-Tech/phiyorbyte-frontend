@@ -62,14 +62,14 @@ export const PaymentSummary = ({ cart, address }) => {
       const res = await addToCheckout(body);
       const response = await res.data;
       if (response) {
-        setState("success");
+        window.open(response?.message?.data?.authorization_url, "_blank");
+        setState("initial");
       }
     } catch (error) {
-      setState("success");
-      // setErr({
-      //   isErr: true,
-      //   errMsg: getErrorMessage(error),
-      // });
+      setErr({
+        isErr: true,
+        errMsg: getErrorMessage(error),
+      });
     }
   };
 

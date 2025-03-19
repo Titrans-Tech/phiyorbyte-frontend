@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa6";
 
 import { Logo } from "../icons";
 import { navData } from "./navData";
-import { LuUser2 } from "react-icons/lu";
+import { LuUser } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { getStoredId } from "@/utils";
@@ -54,7 +54,7 @@ export const MobileHeader = () => {
                 {user?.name ? (
                   <p className="uppercase">{`${user?.name?.charAt(0)}${user?.name?.charAt(1)}`}</p>
                 ) : (
-                  <LuUser2 />
+                  <LuUser />
                 )}
               </div>
               <div

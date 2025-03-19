@@ -5,11 +5,11 @@ import { navData } from "./navData";
 import { CiSearch } from "react-icons/ci";
 import { useRouter } from "next/router";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { LuUser2 } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { getStoredId, isDesktop } from "@/utils";
 import { MobileHeader } from "./mobileHeader";
+import { LuUser } from "react-icons/lu";
 
 export const Header = () => {
   const [user, setUser] = useState(null);
@@ -127,7 +127,7 @@ export const Header = () => {
               {user?.name ? (
                 <p className="uppercase">{`${user?.name?.charAt(0)}${user?.name?.charAt(1)}`}</p>
               ) : (
-                <LuUser2 />
+                <LuUser />
               )}
             </div>
             <div

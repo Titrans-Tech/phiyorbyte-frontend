@@ -71,7 +71,9 @@ export const womenCategory = [
 export const flashCategory = [
   {
     product_name: "T-SHIRT WITH TAPE DETAILS",
-    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219330.jpeg"],
+    images1: [
+      "https://ik.imagekit.io/hydekcjmz/phiyorbyte/mariabeatrice-alonzi-VyI0GBHSsJ8-unsplash.jpg?updatedAt=1742375421564",
+    ],
     rating: 3.5,
     amount: "240",
     discount: 200,
@@ -82,7 +84,9 @@ export const flashCategory = [
   },
   {
     name: "SKINNY FIT JEANS",
-    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226968.jpeg"],
+    images1: [
+      "https://ik.imagekit.io/hydekcjmz/phiyorbyte/samantha-gades-JeEemtLSdjU-unsplash.jpg?updatedAt=1742375465607",
+    ],
     rating: 3,
     amount: "240",
     discount: 200,
@@ -93,7 +97,9 @@ export const flashCategory = [
   },
   {
     name: "CHECKERED SHIRT",
-    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731219441.jpeg"],
+    images1: [
+      "https://ik.imagekit.io/hydekcjmz/phiyorbyte/henry-co-cp-VMJ-mdKs-unsplash.jpg?updatedAt=1742375535836",
+    ],
     rating: 4.5,
     amount: "240",
     discount: 200,
@@ -104,7 +110,9 @@ export const flashCategory = [
   },
   {
     name: "SLEEVE STRIPED T-SHIRT",
-    images1: ["https://api.pdempire.co.uk/resourceimages1/SimonJonah-1731226855.jpeg"],
+    images1: [
+      "https://ik.imagekit.io/hydekcjmz/phiyorbyte/nikhil-uttam-gMkpcMPno-w-unsplash.jpg?updatedAt=1742375536512",
+    ],
     rating: 5,
     amount: "240",
     discount: 200,

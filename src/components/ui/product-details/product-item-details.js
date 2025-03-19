@@ -1,7 +1,7 @@
 import { BtnLoading } from "@/components/button/btnLoading";
 import { addCart } from "@/service/cart";
 import { addFavorite } from "@/service/favourite";
-import { getErrorMessage, getStoredId } from "@/utils";
+import { getErrorMessage, getStoredId, WithCommas } from "@/utils";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
@@ -96,14 +96,14 @@ export const ProductItemsDetails = ({ product }) => {
 
   return (
     <div>
-      <div className="flex gap-3 items-center">
-        <h3 className="text-4xl font-black ">{product?.brand_name}</h3>
+      <div className="flex gap-3 items-start">
+        <h3 className="text-4xl md:max-w-lg font-black ">{product?.brand_name}</h3>
         {loading ? (
           <BtnLoading />
         ) : (
           <CiHeart
-            // onClick={addToFavourite}
-            fontSize={20}
+            onClick={addToFavourite}
+            fontSize={30}
             cursor="pointer"
             className="hover:text-black"
           />
@@ -122,7 +122,8 @@ export const ProductItemsDetails = ({ product }) => {
       </div>
       <div className="flex items-center justify-start gap-2">
         <h3 className="text-black font-bold text-2xl">
-          ${product?.purchase_price} <span className="text-[#0000004D]">${product?.amount}</span>
+          ₦{WithCommas(product?.purchase_price)}{" "}
+          <span className="text-[#0000004D]">₦{WithCommas(product?.amount)}</span>
         </h3>
         <div className="bg-[#FF33331A] px-3  w-fit rounded-full ">
           <p className="text-sm font-medium text-[#FF3333]">-${product?.discount}%</p>
