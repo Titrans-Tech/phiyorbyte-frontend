@@ -14,14 +14,13 @@ const inter = Inter({ subsets: ["latin"] });
 export default function WomenComponent() {
   const { product, error, loading } = useFetchWomenProducts();
 
-  console.log(product, "the product");
   return (
     <main>
       <CustomLayout>
         <main className="mt-4">
           <CustomWrapper>
             <Breadcrumb url="Women" />
-            <section className="my-3 flex items-center justify-between">
+            <section className="my-3 px-2 md:flex items-center justify-between">
               <ComponentTitle title="Women" />
               <div className="">
                 <p className="text-base text-[#00000099]">
@@ -34,7 +33,7 @@ export default function WomenComponent() {
             {loading ? (
               <ComponentLoading />
             ) : (
-              <section className="flex flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-12 px-2 my-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}

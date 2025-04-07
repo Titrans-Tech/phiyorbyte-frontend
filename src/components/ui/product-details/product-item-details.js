@@ -1,4 +1,6 @@
 import { BtnLoading } from "@/components/button/btnLoading";
+import { useAuth } from "@/context/authContext";
+import { useCart } from "@/context/cartContext";
 import { addCart } from "@/service/cart";
 import { addFavorite } from "@/service/favourite";
 import { getErrorMessage, getStoredId, WithCommas } from "@/utils";
@@ -16,6 +18,8 @@ export const ProductItemsDetails = ({ product }) => {
   const [count, setCount] = useState(1);
   const [pending, setPending] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const { addToCart } = useCart();
 
   const [success, setSuccess] = useState({
     isSuccess: null,
@@ -30,31 +34,39 @@ export const ProductItemsDetails = ({ product }) => {
     setUser(JSON.parse(user_details));
   }, []);
 
-  const addToCart = async () => {
-    const bodyData = {
-      user_id: user?.id,
-      quantity: count,
-    };
-    try {
-      setPending(true);
-      const res = await addCart(product?.id, bodyData);
-      const response = await res.data;
+  const handleAddToCart = async () => {
+    if (isAuthenticated) {
+      const bodyData = {
+        user_id: user?.id,
+        quantity: count,
+      };
+      try {
+        setPending(true);
+        const res = await addCart(product?.id, bodyData);
+        const response = await res.data;
 
-      if (response) {
-        setPending(false);
-
+        if (response) {
+          setPending(false);
+          setSuccess({
+            isSuccess: true,
+            msg: "Product Added successful",
+          });
+        }
+      } catch (error) {
         setSuccess({
-          isSuccess: true,
-          msg: "Product Added successful",
+          isSuccess: false,
+          msg: getErrorMessage(error),
         });
+        setPending(false);
+        console.log(error);
       }
-    } catch (error) {
+    } else {
+      // For unauthenticated users, add to local storage
+      addToCart(product, count);
       setSuccess({
-        isSuccess: false,
-        msg: getErrorMessage(error),
+        isSuccess: true,
+        msg: "Product Added to cart",
       });
-      setPending(false);
-      console.log(error);
     }
   };
 
@@ -96,7 +108,7 @@ export const ProductItemsDetails = ({ product }) => {
 
   return (
     <div>
-      <div className="flex gap-3 items-start">
+      <div className="flex gap-3 mt-4 md:mt-0 items-start">
         <h3 className="text-4xl md:max-w-lg font-black ">{product?.brand_name}</h3>
         {loading ? (
           <BtnLoading />
@@ -179,7 +191,10 @@ export const ProductItemsDetails = ({ product }) => {
             <FaPlus />
           </button>
         </div>
-        <button onClick={addToCart} className=" w-full h-10 px-6 bg-black rounded-full text-white">
+        <button
+          onClick={handleAddToCart}
+          className=" w-full h-10 px-6 bg-black rounded-full text-white"
+        >
           {pending ? <BtnLoading /> : "Add to Cart"}
         </button>
       </div>

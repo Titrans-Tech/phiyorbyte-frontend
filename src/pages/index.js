@@ -13,6 +13,7 @@ import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { FaqAccordion } from "@/components/cards/accordion";
 import { Footer } from "@/components/ui/footer";
 import { useFetchMenProducts, useFetchWomenProducts } from "@/hooks/useCategoryApi";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -167,7 +168,7 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
-              <section className="flex flex-wrap  gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
@@ -204,7 +205,7 @@ export default function Home() {
             </section>
             <CustomWrapper>
               <>
-                <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                   {flashCategory.map((cat, catIndex) => (
                     <CategoryCard isDisabled={true} data={cat} key={catIndex} />
                   ))}
@@ -263,14 +264,14 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
-              <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {womenProduct?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="flex items-center mt-9 justify-center">
                 <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                  View All
+                  <Link href="/women">View all</Link>
                 </button>
               </div>
             </CustomWrapper>

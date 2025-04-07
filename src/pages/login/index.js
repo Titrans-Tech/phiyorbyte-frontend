@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { loginUser } from "@/service/auth";
 import { getErrorMessage } from "@/utils";
 import Alerts from "@/components/alert";
+import { useAuth } from "@/context/authContext";
 
 const LoginScreen = () => {
   const [openForgotPasswordModal, setOpenForgotPasswordModal] = useState(false);
@@ -29,6 +30,8 @@ const LoginScreen = () => {
   } = useForm();
 
   const router = useRouter();
+  const { checkAuth } = useAuth();
+  const query = router.query;
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState({
     isErr: false,
@@ -49,8 +52,12 @@ const LoginScreen = () => {
         setLoading(false);
         localStorage.setItem("access_token", response?.access_token);
         localStorage.setItem("user_data", JSON.stringify(response?.user));
-        console.log(response, "the response");
-        router.push("/profile");
+        checkAuth();
+        if (query.cart) {
+          router.push("/cart");
+        } else {
+          router.push("/profile");
+        }
       }
     } catch (error) {
       setLoading(false);
@@ -129,7 +136,7 @@ const LoginScreen = () => {
                 <p className="text-base font-normal my-4 text-center text-[#00000066]">
                   Alraedy have an account?
                   <button className="text-base ml-2 font-bold text-[#002400]">
-                    <Link href="/signup">Sign Up</Link>
+                    <Link href={query.cart ? "/signup?cart=true" : "/signup"}>Sign Up</Link>
                   </button>
                 </p>
               </section>

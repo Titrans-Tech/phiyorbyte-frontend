@@ -5,8 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CategoryCard } from "@/components/cards/categoryCard";
 import { Footer } from "@/components/ui/footer";
-import { newArivalData } from "@/utils/data";
-import { useRouter } from "next/router";
+
 import { useFetchMenProducts } from "@/hooks/useCategoryApi";
 import { ComponentLoading } from "@/components/button/componentLoading";
 
@@ -15,7 +14,6 @@ const inter = Inter({ subsets: ["latin"] });
 export default function MenComponent() {
   const { product, loading } = useFetchMenProducts();
 
-  console.log(product, "the product");
   return (
     <main>
       <CustomLayout>
@@ -35,7 +33,7 @@ export default function MenComponent() {
             {loading ? (
               <ComponentLoading />
             ) : (
-              <section className="flex flex-wrap gap-12 mt-10 mb-20 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-12 px-4 my-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}

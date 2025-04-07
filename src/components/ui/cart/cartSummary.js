@@ -5,8 +5,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { FiTag } from "react-icons/fi";
 import { GoArrowRight } from "react-icons/go";
+import { useAuth } from "@/context/authContext";
+import { useCart } from "@/context/cartContext";
 
 export const CartSummary = ({ summary }) => {
+  const { isAuthenticated } = useAuth();
+  const { cart } = useCart();
   const router = useRouter();
   const [couponCode, setCouponCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,13 +37,26 @@ export const CartSummary = ({ summary }) => {
     }
   };
 
+  const handleCheckout = () => {
+    if (isAuthenticated) {
+      router.push("/cart/checkout");
+    } else {
+      router.push(`/login?cart=${true}`);
+    }
+  };
+
+  // Calculate total amount based on authentication status
+  const totalAmount = isAuthenticated
+    ? summary
+    : cart.reduce((total, item) => total + item.amount * item.quantity, 0);
+
   return (
     <section className="border w-full space-y-3 py-3 px-3 my-5 max-w-lg rounded-md ">
       <h3 className="text-lg font-bold">Order Summary</h3>
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Subtotal</h3>
-          <p className="font-bold text-lg text-black">₦{WithCommas(summary)}</p>
+          <p className="font-bold text-lg text-black">₦{WithCommas(totalAmount)}</p>
         </div>
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Discount (-20%)</h3>
@@ -51,7 +68,7 @@ export const CartSummary = ({ summary }) => {
         </div>
         <div className="flex items-center justify-between">
           <h3 className="text-[#00000099] font-normal">Total</h3>
-          <p className="font-bold text-lg text-black">₦{WithCommas(summary)}</p>
+          <p className="font-bold text-lg text-black">₦{WithCommas(totalAmount)}</p>
         </div>
       </section>
       <form onSubmit={handlePostCouponCode} className="flex !mb-5 items-center gap-2 ">
@@ -71,11 +88,10 @@ export const CartSummary = ({ summary }) => {
         </button>
       </form>
       <button
-        onClick={() => router.push("/cart/checkout")}
+        onClick={handleCheckout}
         className="py-3  gap-2 font-medium  w-full text-sm px-4 bg-[#000000] text-white flex items-center justify-center rounded-full"
       >
-        <span> Go to Checkout</span>
-        <GoArrowRight fontSize={18} fontWeight={600} />
+        {isAuthenticated ? "Proceed to Checkout" : "Login to Checkout"}
       </button>
     </section>
   );
