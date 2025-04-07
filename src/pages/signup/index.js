@@ -31,6 +31,8 @@ const SignupScreen = () => {
     errMsg: "",
   });
 
+  const query = router.query;
+
   const signupNewUser = async (data) => {
     const bodyData = {
       name: data.fullName,
@@ -47,7 +49,7 @@ const SignupScreen = () => {
 
       if (response) {
         setLoading(false);
-        router.push("/login");
+        router.push(query.cart ? "/login?cart=true" : "/login");
       }
     } catch (error) {
       setLoading(false);
@@ -172,7 +174,7 @@ const SignupScreen = () => {
             <p className="text-base font-normal my-4 text-center text-[#00000066]">
               Don’t have an account?{" "}
               <button className="text-base font-bold text-[#002400]">
-                <Link href="/login">Log In</Link>
+                <Link href={query.cart ? "/login?cart=true" : "/login"}>Log In</Link>
               </button>
             </p>
           </section>

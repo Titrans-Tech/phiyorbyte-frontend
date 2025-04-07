@@ -9,9 +9,11 @@ import { useFetchProfile } from "../../components/ui/profile/_component/useUser"
 import { useEffect, useState } from "react";
 import { ComponentLoading } from "@/components/button/componentLoading";
 import { useRouter } from "next/router";
+import { useAuth } from "@/context/authContext";
 
 const Profile = () => {
   const router = useRouter();
+  const { checkAuth } = useAuth();
   const { profile, loading } = useFetchProfile();
   const [phone, setPhone] = useState(profile?.phone || "");
   const [address, setAddress] = useState(profile?.address || "");
@@ -26,6 +28,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     localStorage.clear();
+    checkAuth();
     router.push("/");
   };
 
