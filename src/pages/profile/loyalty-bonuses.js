@@ -33,7 +33,7 @@ const LoyaltyBonusess = () => {
           <ProfileLayout>
             <section>
               <ProfileHeaderText text="Loyalty Bonuses" />
-              <div className="border-b flex gap-7 w-fit items-center">
+              <div className="border-b flex mt-5 gap-7 w-fit items-center">
                 {tab.map((tabs, tabIndex) => (
                   <div
                     onClick={() => setCurrent(tabIndex)}

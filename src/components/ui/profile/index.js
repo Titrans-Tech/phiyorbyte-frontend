@@ -65,7 +65,9 @@ export const ProfileLayout = ({ children }) => {
             </li>
           </ul>
         </div>
-        <div className="border w-full py-5  px-5 rounded-lg  border-[#0000001A]">{children}</div>
+        <div className="border w-full py-5  px-1 md:px-5 rounded-lg  border-[#0000001A]">
+          {children}
+        </div>
       </section>
     </>
   );
