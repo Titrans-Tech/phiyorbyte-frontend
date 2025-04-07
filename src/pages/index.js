@@ -168,7 +168,7 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
-              <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
@@ -205,7 +205,7 @@ export default function Home() {
             </section>
             <CustomWrapper>
               <>
-                <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                   {flashCategory.map((cat, catIndex) => (
                     <CategoryCard isDisabled={true} data={cat} key={catIndex} />
                   ))}
@@ -264,7 +264,7 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
-              <section className="grid  gap-12 mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {womenProduct?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}

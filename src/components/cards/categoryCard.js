@@ -26,11 +26,15 @@ export const CategoryCard = ({ data, link, isDisabled }) => {
               <p className="font-bold text-lg line-through text-[#00000066]">
                 ₦{WithCommas(data.amount) || 0}
               </p>
-              <div className="bg-[#FF33331A] text-xs font-medium py- px-1 rounded-full">
+
+              <div className="bg-[#FF33331A] hidden md:block text-xs font-medium py- px-1 rounded-full">
                 -{data?.discount || 0.0}%
               </div>
             </>
           )}
+        </div>
+        <div className="bg-[#FF33331A] block md:hidden text-xs w-fit  font-medium py- px-1 rounded-full">
+          -{data?.discount || 0.0}%
         </div>
       </section>
       <button className=" w-4/5 py-2 left-5 md:hidden group-hover:block  absolute top-[150px] bg-black text-white rounded-full font-medium text-sm">
