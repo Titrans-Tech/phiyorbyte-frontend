@@ -107,7 +107,7 @@ export default function Home() {
             <CustomWrapper>
               <div className="flex px-5 py-6 items-center justify-center flex-col">
                 <h3 className="font-semibold text-[#002400] text-4xl font-mono">Featured ‘24</h3>
-                <div>
+                <div className="text-center ">
                   - Casual - Formal - Underwear - Sportswear - Dresses - Gowns - Skirts - Swimwear
                   and Lingerie
                 </div>

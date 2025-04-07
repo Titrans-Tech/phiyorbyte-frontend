@@ -7,7 +7,7 @@ export const Breadcrumb = ({ url }) => {
   const pathSegments = router.asPath.split("/").filter((seg) => seg);
 
   return (
-    <section className="flex px-4 items-center gap-2">
+    <section className="flex px-1 md:px-4 mt-2 items-center gap-2">
       <button onClick={() => router.back()} className="text-base font-normal text-[#00000099]">
         Home
       </button>

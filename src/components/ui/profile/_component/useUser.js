@@ -1,6 +1,7 @@
 import { getItemsBySubcategory } from "@/service/order";
 import { fetchUserOrders, fetchUserProfile } from "@/service/user";
 import { getStoredId } from "@/utils";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 export const useFetchProfile = () => {
@@ -33,29 +34,14 @@ export const useFetchProfile = () => {
 // fetchUserOrders
 
 export const useFetchOrders = () => {
-  const [loading, setLoading] = useState(false);
-  const [orders, setOrders] = useState(null);
+  const query = useQuery({
+    queryKey: ["order-history"],
+    queryFn: fetchUserOrders,
+  });
 
-  const getOrders = async () => {
-    try {
-      setLoading(true);
-      const res = await fetchUserOrders();
-      const response = await res.data;
+  const { isError, isLoading, data } = query;
 
-      if (response) {
-        setLoading(false);
-        setOrders(response?.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getOrders();
-  }, []);
-
-  return { loading, orders, getOrders };
+  return { loading: isLoading, orders: data?.data };
 };
 
 export const useFetchPoductByCategory = () => {

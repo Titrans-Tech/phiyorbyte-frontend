@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { Lato } from "next/font/google";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
@@ -100,9 +101,9 @@ export const Hero = () => {
             >
               {imgCarousel[current]?.label}
             </p>
-            <button className="py-2 px-12 bg-white rounded text-[#002400] font-bold ">
+            <Link href="/product" className="py-2 px-12 bg-white rounded text-[#002400] font-bold ">
               Shop Now
-            </button>
+            </Link>
           </div>
           <div className="relative md:-left-20 top-6 ">
             <img

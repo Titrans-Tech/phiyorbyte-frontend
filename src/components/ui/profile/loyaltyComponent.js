@@ -25,7 +25,7 @@ export const LoyaltyBonuses = () => {
 export const LoyaltyCard = ({ item }) => {
   return (
     <div className="flex my-4 items-center border-b pb-2 justify-between">
-      <div className="flex items-center gap-3">
+      <div className="md:flex space-y-3 items-center gap-3">
         <Image height={50} width={100} className="" src="/assets/loyal-card.png" alt="" />
         <div>
           <h3 className="text-sm font-semibold">{item.bonus} off on next purchase</h3>
@@ -54,7 +54,7 @@ export const LoyaltyCard = ({ item }) => {
           {item?.redeemStatus}
         </p>
       ) : (
-        <button className="h-10 rounded-full font-medium text-base bg-black text-white px-8">
+        <button className="h-10 rounded-full font-medium text-xs md:text-base bg-black text-white px-4 md:px-8">
           Redeem Now
         </button>
       )}
