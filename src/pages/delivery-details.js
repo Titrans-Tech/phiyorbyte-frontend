@@ -8,7 +8,7 @@ export default function DeliveryDetails() {
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
           <h1 className="text-4xl font-bold text-[#002400] mb-8">Delivery Details</h1>
-          
+
           <section className="mb-12">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-[#F0E0ED] p-6 rounded-lg">
@@ -48,7 +48,8 @@ export default function DeliveryDetails() {
                   <h3 className="text-xl font-semibold">Shipping Areas</h3>
                 </div>
                 <p className="text-gray-600">
-                  We ship to all 50 states in the USA. International shipping available to select countries.
+                  We ship to all 50 states in the USA. International shipping available to select
+                  countries.
                 </p>
               </div>
 
@@ -58,7 +59,8 @@ export default function DeliveryDetails() {
                   <h3 className="text-xl font-semibold">Order Processing</h3>
                 </div>
                 <p className="text-gray-600">
-                  Orders are processed within 24-48 hours. You will receive a confirmation email with tracking information.
+                  Orders are processed within 24-48 hours. You will receive a confirmation email
+                  with tracking information.
                 </p>
               </div>
 
@@ -80,21 +82,27 @@ export default function DeliveryDetails() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-2">How can I track my order?</h3>
                 <p className="text-gray-600">
-                  Once your order is shipped, you will receive a tracking number via email. You can use this number to track your package on our website or the carrier's website.
+                  Once your order is shipped, you will receive a tracking number via email. You can
+                  use this number to track your package on our website or the carrier&apos;s
+                  website.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-semibold mb-2">What if I'm not home when delivery is attempted?</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  What if I&apos;m not home when delivery is attempted?
+                </h3>
                 <p className="text-gray-600">
-                  The carrier will leave a notice and attempt delivery again the next business day. You can also arrange for pickup at a local carrier facility.
+                  The carrier will leave a notice and attempt delivery again the next business day.
+                  You can also arrange for pickup at a local carrier facility.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-2">Do you offer international shipping?</h3>
                 <p className="text-gray-600">
-                  Yes, we ship to select international destinations. Shipping fees and delivery times vary by country. Please check our international shipping page for details.
+                  Yes, we ship to select international destinations. Shipping fees and delivery
+                  times vary by country. Please check our international shipping page for details.
                 </p>
               </div>
             </div>
@@ -103,11 +111,13 @@ export default function DeliveryDetails() {
           <section>
             <h2 className="text-2xl font-semibold text-[#002400] mb-6">Need Help?</h2>
             <p className="text-gray-600 mb-4">
-              If you have any questions about delivery or need assistance with your order, please contact our customer service team at support@phiyorbyte.com or call us at (555) 123-4567.
+              If you have any questions about delivery or need assistance with your order, please
+              contact our customer service team at support@phiyorbyte.com or call us at (555)
+              123-4567.
             </p>
           </section>
         </CustomWrapper>
       </div>
     </CustomLayout>
   );
-} 
+}

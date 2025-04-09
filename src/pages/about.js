@@ -10,7 +10,9 @@ export default function About() {
       <div className="min-h-screen bg-white">
         <section className="py-16 bg-[#F0E0ED]">
           <CustomWrapper>
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-[#002400]">About Phiyorbyte</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-center text-[#002400]">
+              About Phiyorbyte
+            </h1>
             <p className="text-center mt-4 text-gray-600 max-w-3xl mx-auto">
               Revolutionizing E-commerce Through Innovation and Customer-Centric Solutions
             </p>
@@ -23,15 +25,15 @@ export default function About() {
               <div>
                 <h2 className="text-3xl font-bold text-[#002400] mb-6">Our Vision</h2>
                 <p className="text-gray-600 mb-4">
-                  Founded in 2024, Phiyorbyte emerged as a pioneer in modern e-commerce, 
-                  transforming the way people shop online. We're not just another fashion 
-                  retailer – we're a technology-driven platform that's redefining the 
+                  Founded in 2024, Phiyorbyte emerged as a pioneer in modern e-commerce,
+                  transforming the way people shop online. We&apos;re not just another fashion
+                  retailer – we&apos;re a technology-driven platform that&apos;s redefining the
                   online shopping experience.
                 </p>
                 <p className="text-gray-600">
-                  Our mission is to combine cutting-edge technology with exceptional 
-                  customer service to create a seamless, personalized shopping journey 
-                  that sets new standards in the e-commerce industry.
+                  Our mission is to combine cutting-edge technology with exceptional customer
+                  service to create a seamless, personalized shopping journey that sets new
+                  standards in the e-commerce industry.
                 </p>
               </div>
               {/* <div className="relative h-[400px]">
@@ -54,8 +56,8 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Advanced Technology</h3>
                 <p className="text-gray-600">
-                  Leveraging AI and machine learning to provide personalized recommendations 
-                  and a smarter shopping experience.
+                  Leveraging AI and machine learning to provide personalized recommendations and a
+                  smarter shopping experience.
                 </p>
               </div>
               <div className="text-center p-6 bg-[#F0E0ED] rounded-lg">
@@ -64,8 +66,8 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Secure Shopping</h3>
                 <p className="text-gray-600">
-                  State-of-the-art security measures and fraud prevention to ensure 
-                  safe transactions and data protection.
+                  State-of-the-art security measures and fraud prevention to ensure safe
+                  transactions and data protection.
                 </p>
               </div>
               <div className="text-center p-6 bg-[#F0E0ED] rounded-lg">
@@ -74,8 +76,7 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Mobile-First Experience</h3>
                 <p className="text-gray-600">
-                  Optimized mobile shopping with AR try-on features and seamless 
-                  checkout process.
+                  Optimized mobile shopping with AR try-on features and seamless checkout process.
                 </p>
               </div>
               <div className="text-center p-6 bg-[#F0E0ED] rounded-lg">
@@ -84,8 +85,8 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Community Focus</h3>
                 <p className="text-gray-600">
-                  Building a vibrant community through social shopping features 
-                  and customer engagement.
+                  Building a vibrant community through social shopping features and customer
+                  engagement.
                 </p>
               </div>
             </div>
@@ -97,29 +98,29 @@ export default function About() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-4">Smart Recommendations</h3>
                 <p className="text-gray-600">
-                  Our AI-powered recommendation engine analyzes your preferences and 
-                  browsing history to suggest products you'll love.
+                  Our AI-powered recommendation engine analyzes your preferences and browsing
+                  history to suggest products you&apos;ll love.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-4">Virtual Try-On</h3>
                 <p className="text-gray-600">
-                  Experience our revolutionary AR technology that lets you try on 
-                  clothes virtually before making a purchase.
+                  Experience our revolutionary AR technology that lets you try on clothes virtually
+                  before making a purchase.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-4">One-Click Checkout</h3>
                 <p className="text-gray-600">
-                  Streamlined checkout process with saved payment methods and 
-                  address information for instant purchases.
+                  Streamlined checkout process with saved payment methods and address information
+                  for instant purchases.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-semibold mb-4">Real-Time Inventory</h3>
                 <p className="text-gray-600">
-                  Accurate stock tracking and instant updates to ensure you never 
-                  miss out on your favorite items.
+                  Accurate stock tracking and instant updates to ensure you never miss out on your
+                  favorite items.
                 </p>
               </div>
             </div>
@@ -129,4 +130,4 @@ export default function About() {
       <Footer />
     </CustomLayout>
   );
-} 
+}

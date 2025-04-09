@@ -8,10 +8,12 @@ export default function PrivacyPolicy() {
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
           <h1 className="text-4xl px-5 font-bold text-[#002400] mb-8">Privacy Policy</h1>
-          
+
           <div className="prose max-w-none px-5">
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-[#002400] mb-4">1. Information We Collect</h2>
+              <h2 className="text-2xl font-semibold text-[#002400] mb-4">
+                1. Information We Collect
+              </h2>
               <p className="text-gray-600 mb-4">
                 We collect information that you provide directly to us, including:
               </p>
@@ -25,10 +27,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-[#002400] mb-4">2. How We Use Your Information</h2>
-              <p className="text-gray-600 mb-4">
-                We use the information we collect to:
-              </p>
+              <h2 className="text-2xl font-semibold text-[#002400] mb-4">
+                2. How We Use Your Information
+              </h2>
+              <p className="text-gray-600 mb-4">We use the information we collect to:</p>
               <ul className="list-disc pl-6 text-gray-600 mb-4">
                 <li>Process your orders and payments</li>
                 <li>Communicate with you about your orders</li>
@@ -54,15 +56,14 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-[#002400] mb-4">4. Data Security</h2>
               <p className="text-gray-600 mb-4">
-                We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.
+                We implement appropriate security measures to protect your personal information.
+                However, no method of transmission over the internet is 100% secure.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-[#002400] mb-4">5. Your Rights</h2>
-              <p className="text-gray-600 mb-4">
-                You have the right to:
-              </p>
+              <p className="text-gray-600 mb-4">You have the right to:</p>
               <ul className="list-disc pl-6 text-gray-600 mb-4">
                 <li>Access your personal information</li>
                 <li>Correct inaccurate information</li>
@@ -73,30 +74,40 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-[#002400] mb-4">6. Cookies and Tracking</h2>
+              <h2 className="text-2xl font-semibold text-[#002400] mb-4">
+                6. Cookies and Tracking
+              </h2>
               <p className="text-gray-600 mb-4">
-                We use cookies and similar tracking technologies to improve your browsing experience and analyze website traffic. You can control cookies through your browser settings.
+                We use cookies and similar tracking technologies to improve your browsing experience
+                and analyze website traffic. You can control cookies through your browser settings.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-[#002400] mb-4">7. Children's Privacy</h2>
+              <h2 className="text-2xl font-semibold text-[#002400] mb-4">
+                7. Children&apos;s Privacy
+              </h2>
               <p className="text-gray-600 mb-4">
-                Our services are not intended for children under 13. We do not knowingly collect personal information from children under 13.
+                Our services are not intended for children under 13. We do not knowingly collect
+                personal information from children under 13.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-[#002400] mb-4">8. Changes to Privacy Policy</h2>
+              <h2 className="text-2xl font-semibold text-[#002400] mb-4">
+                8. Changes to Privacy Policy
+              </h2>
               <p className="text-gray-600 mb-4">
-                We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.
+                We may update this privacy policy from time to time. We will notify you of any
+                changes by posting the new policy on this page.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-[#002400] mb-4">9. Contact Us</h2>
               <p className="text-gray-600">
-                If you have any questions about this Privacy Policy, please contact us at privacy@phiyorbyte.com
+                If you have any questions about this Privacy Policy, please contact us at
+                privacy@phiyorbyte.com
               </p>
             </section>
           </div>
@@ -105,4 +116,4 @@ export default function PrivacyPolicy() {
       <Footer />
     </CustomLayout>
   );
-} 
+}

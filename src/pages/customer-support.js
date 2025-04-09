@@ -1,6 +1,7 @@
 import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
 import { Footer } from "@/components/ui/footer";
+import Link from "next/link";
 import { FaPhone, FaEnvelope, FaClock, FaHeadset, FaQuestionCircle } from "react-icons/fa";
 
 export default function CustomerSupport() {
@@ -9,7 +10,7 @@ export default function CustomerSupport() {
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
           <h1 className="text-4xl font-bold text-[#002400] px-5 mb-8">Customer Support</h1>
-          
+
           <section className="mb-12 px-5">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-[#F0E0ED] p-6 rounded-lg text-center">
@@ -36,7 +37,13 @@ export default function CustomerSupport() {
                 </div>
                 <h2 className="text-xl font-semibold mb-2">WhatsApp Support</h2>
                 <p className="text-gray-600 mb-2">
-                  <a href="https://wa.me/2349084123456" target="_blank" rel="noopener noreferrer">2349084123456</a>
+                  <Link
+                    href="https://wa.me/2349084123456"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    2349084123456
+                  </Link>
                 </p>
                 <p className="text-sm text-gray-500">Available 24/7</p>
               </div>
@@ -151,4 +158,4 @@ export default function CustomerSupport() {
       <Footer />
     </CustomLayout>
   );
-} 
+}
