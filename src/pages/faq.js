@@ -118,9 +118,11 @@ export default function FAQ() {
     <CustomLayout>
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
-          <h1 className="text-4xl font-bold text-[#002400] mb-8">Frequently Asked Questions</h1>
+          <h1 className="text-xl px-5 md:text-4xl font-bold text-[#002400] mb-8">
+            Frequently Asked Questions
+          </h1>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl px-5 mx-auto">
             {faqs.map((category, index) => (
               <div key={index} className="mb-12">
                 <h2 className="text-2xl font-semibold text-[#002400] mb-6">{category.category}</h2>
@@ -133,7 +135,7 @@ export default function FAQ() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 px-5 text-center">
             <p className="text-gray-600 mb-4">Can&apos;t find what you&apos;re looking for?</p>
             <Link href="/customer-support" className="text-[#002400] font-semibold hover:underline">
               Contact our customer support team

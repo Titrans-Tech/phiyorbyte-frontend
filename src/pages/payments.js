@@ -20,7 +20,7 @@ export default function Payments() {
         </section>
 
         <CustomWrapper>
-          <section className="py-16">
+          <section className="py-16 px-5">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-bold text-[#002400] mb-6">Accepted Payment Methods</h2>
@@ -82,7 +82,7 @@ export default function Payments() {
             </div>
           </section>
 
-          <section className="py-16">
+          <section className="py-16 px-5">
             <h2 className="text-3xl font-bold text-[#002400] mb-12 text-center">Refund Policy</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -118,7 +118,7 @@ export default function Payments() {
             </div>
           </section>
 
-          <section className="py-16">
+          <section className="py-16 px-5">
             <h2 className="text-3xl font-bold text-[#002400] mb-12 text-center">
               Frequently Asked Questions
             </h2>
@@ -166,7 +166,7 @@ export default function Payments() {
             </div>
           </section>
 
-          <section className="py-16">
+          <section className="py-16 px-5">
             <div className="bg-[#F0E0ED] p-8 rounded-lg text-center">
               <h2 className="text-2xl font-semibold text-[#002400] mb-4">
                 Need Help with Payments?

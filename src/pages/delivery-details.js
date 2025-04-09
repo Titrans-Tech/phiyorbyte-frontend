@@ -1,5 +1,6 @@
 import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
+import { Footer } from "@/components/ui/footer";
 import { FaTruck, FaBox, FaExchangeAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function DeliveryDetails() {
@@ -7,14 +8,16 @@ export default function DeliveryDetails() {
     <CustomLayout>
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
-          <h1 className="text-4xl font-bold text-[#002400] mb-8">Delivery Details</h1>
+          <h1 className="text-xl md:text-4xl font-bold text-[#002400] mb-8">Delivery Details</h1>
 
-          <section className="mb-12">
+          <section className="mb-12 px-5">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-[#F0E0ED] p-6 rounded-lg">
                 <div className="flex items-center mb-4">
                   <FaTruck className="text-2xl mr-4 text-[#002400]" />
-                  <h2 className="text-2xl font-semibold text-[#002400]">Standard Delivery</h2>
+                  <h2 className="text-lg md:text-2xl font-semibold text-[#002400]">
+                    Standard Delivery
+                  </h2>
                 </div>
                 <ul className="list-disc pl-6 text-gray-600">
                   <li>Delivery within 3-5 business days</li>
@@ -39,7 +42,7 @@ export default function DeliveryDetails() {
             </div>
           </section>
 
-          <section className="mb-12">
+          <section className="mb-12 px-5">
             <h2 className="text-2xl font-semibold text-[#002400] mb-6">Shipping Information</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -76,7 +79,7 @@ export default function DeliveryDetails() {
             </div>
           </section>
 
-          <section className="mb-12">
+          <section className="mb-12 px-5">
             <h2 className="text-2xl font-semibold text-[#002400] mb-6">Delivery FAQs</h2>
             <div className="space-y-4">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -118,6 +121,7 @@ export default function DeliveryDetails() {
           </section>
         </CustomWrapper>
       </div>
+      <Footer />
     </CustomLayout>
   );
 }

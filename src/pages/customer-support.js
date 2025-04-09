@@ -9,7 +9,9 @@ export default function CustomerSupport() {
     <CustomLayout>
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
-          <h1 className="text-4xl font-bold text-[#002400] px-5 mb-8">Customer Support</h1>
+          <h1 className="text-xl md:text-4xl font-bold text-[#002400] px-5 mb-8">
+            Customer Support
+          </h1>
 
           <section className="mb-12 px-5">
             <div className="grid md:grid-cols-3 gap-8">

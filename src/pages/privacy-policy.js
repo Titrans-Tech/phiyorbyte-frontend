@@ -7,9 +7,9 @@ export default function PrivacyPolicy() {
     <CustomLayout>
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
-          <h1 className="text-4xl px-5 font-bold text-[#002400] mb-8">Privacy Policy</h1>
+          <h1 className="text-xl md:text-4xl px-5 font-bold text-[#002400] mb-8">Privacy Policy</h1>
 
-          <div className="prose max-w-none px-5">
+          <div className="prose  max-w-none px-5">
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-[#002400] mb-4">
                 1. Information We Collect
