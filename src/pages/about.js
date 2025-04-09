@@ -10,7 +10,7 @@ export default function About() {
       <div className="min-h-screen bg-white">
         <section className="py-16 bg-[#F0E0ED]">
           <CustomWrapper>
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-[#002400]">
+            <h1 className=" text-3xl md:text-5xl font-bold text-center text-[#002400]">
               About Phiyorbyte
             </h1>
             <p className="text-center mt-4 text-gray-600 max-w-3xl mx-auto">

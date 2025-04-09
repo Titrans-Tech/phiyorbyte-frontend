@@ -60,7 +60,6 @@ export const Footer = () => {
             <li className="text-base py-1 font-normal text-[#00000099]">
               <Link href="/about">About </Link>
             </li>
-    
           </ul>
           <ul>
             <li className="text-base py-1 font-medium mb-2">HELP</li>
@@ -73,16 +72,18 @@ export const Footer = () => {
             <li className="text-base py-1 font-normal text-[#00000099]">
               <Link href="/terms-and-conditions">Terms & Conditions</Link>
             </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Privacy Policy</li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
           </ul>
           <ul>
             <li className="text-base py-1 font-medium mb-2">FAQ</li>
             <li className="text-base py-1 font-normal text-[#00000099]">
               <Link href="/faq">Account </Link>
-               </li>
+            </li>
             <li className="text-base py-1 font-normal text-[#00000099]">
               <Link href="/faq">Manage Deliveries </Link>
-               </li>
+            </li>
             <li className="text-base py-1 font-normal text-[#00000099]">
               <Link href="/faq">Orders</Link>
             </li>
