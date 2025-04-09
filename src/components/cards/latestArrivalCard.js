@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export const LatestArrivalCard = ({ data }) => {
@@ -16,7 +17,9 @@ export const LatestArrivalCard = ({ data }) => {
           <h3 className="text-[#191919] capitalize font-medium text-sm ">{data.name} </h3>
           <p className="font-medium text-xs text-[#797979]">Explore Now!</p>
         </div>
-        <FaArrowRightLong fontSize={14} color="#797979" />
+        <Link href="/product">
+          <FaArrowRightLong fontSize={14} color="#797979" />
+        </Link>
       </div>
     </section>
   );

@@ -175,7 +175,7 @@ export default function Home() {
               </section>
               <div className="flex items-center mt-9 justify-center">
                 <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                  View All
+                  <Link href="/men">View All</Link>
                 </button>
               </div>
             </CustomWrapper>
@@ -212,7 +212,7 @@ export default function Home() {
                 </section>
                 <div className="flex items-center mt-9 justify-center">
                   <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                    View All
+                    <Link href="/product"> View All</Link>
                   </button>
                 </div>
               </>

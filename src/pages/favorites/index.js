@@ -34,7 +34,7 @@ const Favourites = () => {
                         <Link
                           href={`/product/${fav?.ref_no}`}
                           key={favIndex}
-                          className="border-b py-1 flex items-center justify-between"
+                          className="border-b py-1 "
                         >
                           <div className="flex items-start gap-2">
                             <Image
@@ -49,6 +49,7 @@ const Favourites = () => {
                               <p className="text-sm font-normal">Color: {fav.product_colors} </p>
                               <h2 className="font-bold text-lg">₦{WithCommas(fav.amount)}</h2>
                             </div>
+                            <RiDeleteBin6Fill color="red" cursor="pointer" fontSize={20} />
                           </div>
                           {/* <RiDeleteBin6Fill color="red" cursor="pointer" fontSize={20} /> */}
                         </Link>
