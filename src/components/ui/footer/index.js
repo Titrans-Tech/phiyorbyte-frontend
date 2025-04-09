@@ -4,6 +4,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { IoLogoTwitter, IoLogoInstagram } from "react-icons/io5";
 import { FaFacebookF } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
   const paymentMethod = [
@@ -56,23 +57,38 @@ export const Footer = () => {
           </div>
           <ul>
             <li className="text-base py-1 font-medium mb-2">COMPANY</li>
-            <li className="text-base py-1 font-normal text-[#00000099]">About </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Features </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Career</li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/about">About </Link>
+            </li>
+    
           </ul>
           <ul>
             <li className="text-base py-1 font-medium mb-2">HELP</li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Customer Support </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Delivery Details </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Terms & Conditions</li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/customer-support">Customer Support </Link>
+            </li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/delivery-details">Delivery Details </Link>
+            </li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/terms-and-conditions">Terms & Conditions</Link>
+            </li>
             <li className="text-base py-1 font-normal text-[#00000099]">Privacy Policy</li>
           </ul>
           <ul>
             <li className="text-base py-1 font-medium mb-2">FAQ</li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Account </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Manage DeliverieS </li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Orders</li>
-            <li className="text-base py-1 font-normal text-[#00000099]">Payments</li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/faq">Account </Link>
+               </li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/faq">Manage Deliveries </Link>
+               </li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/faq">Orders</Link>
+            </li>
+            <li className="text-base py-1 font-normal text-[#00000099]">
+              <Link href="/payments">Payments</Link>
+            </li>
           </ul>
         </section>
         <section className="py-3 px-5 flex flex-wrap-reverse items-center justify-between">
