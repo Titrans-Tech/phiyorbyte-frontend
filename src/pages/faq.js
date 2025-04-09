@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer }) => {
         className="flex justify-between items-center w-full text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className="text-lg font-semibold text-[#002400]">{question}</h3>
+        <h3 className="text-base md:text-lg font-semibold text-[#002400]">{question}</h3>
         {isOpen ? (
           <FaChevronUp className="text-[#002400]" />
         ) : (
@@ -125,7 +125,9 @@ export default function FAQ() {
           <div className="max-w-3xl px-5 mx-auto">
             {faqs.map((category, index) => (
               <div key={index} className="mb-12">
-                <h2 className="text-2xl font-semibold text-[#002400] mb-6">{category.category}</h2>
+                <h2 className="text-lg md:text-2xl font-semibold text-[#002400] mb-6">
+                  {category.category}
+                </h2>
                 <div className="space-y-4">
                   {category.questions.map((faq, faqIndex) => (
                     <FAQItem key={faqIndex} question={faq.question} answer={faq.answer} />

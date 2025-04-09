@@ -8,7 +8,7 @@ export default function DeliveryDetails() {
     <CustomLayout>
       <div className="min-h-screen bg-white py-16">
         <CustomWrapper>
-          <h1 className="text-xl md:text-4xl font-bold text-[#002400] mb-8">Delivery Details</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-[#002400] mb-8">Delivery Details</h1>
 
           <section className="mb-12 px-5">
             <div className="grid md:grid-cols-2 gap-8">
