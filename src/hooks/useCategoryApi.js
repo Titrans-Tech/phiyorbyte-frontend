@@ -10,57 +10,21 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 export const useFetchMenProducts = () => {
-  const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState([]);
-  const [error, setError] = useState(null);
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["men-category"],
+    queryFn: getMenCategory,
+  });
 
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const res = await getMenCategory();
-      const response = res.data;
-      if (response) {
-        setLoading(false);
-        setProduct(response?.data);
-      }
-    } catch (error) {
-      setError(getErrorMessage(error));
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  return { loading, error, product, getProducts };
+  return { loading: isLoading, error: isError, product: data?.data, refetch };
 };
 
 export const useFetchWomenProducts = () => {
-  const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState([]);
-  const [error, setError] = useState(null);
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["women-category"],
+    queryFn: getWomenCategory,
+  });
 
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const res = await getWomenCategory();
-      const response = res.data;
-      if (response) {
-        setLoading(false);
-        setProduct(response?.data);
-      }
-    } catch (error) {
-      setError(getErrorMessage(error));
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  return { loading, error, product, getProducts };
+  return { loading: isLoading, error: isError, product: data?.data, refetch };
 };
 
 export const useFetchNewProducts = () => {
@@ -91,54 +55,19 @@ export const useFetchNewProducts = () => {
   return { loading, error, product, getProducts };
 };
 
-export const useFetchProductDetails = () => {
-  const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState([]);
-  const [error, setError] = useState(null);
+export const useFetchProductDetails = (productId) => {
+  const query = useQuery({
+    queryKey: ["product-details", productId],
+    queryFn: () => getProductDetails(productId),
+  });
+  const { data, isError, isLoading, refetch } = query;
 
-  const getProductsDetails = async (productId) => {
-    try {
-      setLoading(true);
-      const res = await getProductDetails(productId);
-      const response = res.data;
-      if (response) {
-        setLoading(false);
-        setProduct(response?.data);
-        console.log(response);
-      }
-    } catch (error) {
-      setError(getErrorMessage(error));
-      setLoading(false);
-    }
-  };
-
-  return { loading, error, product, getProductsDetails };
+  return { loading: isLoading, error: isError, product: data?.data, refetch };
 };
 
 export const useGetFavourite = () => {
   const query = useQuery({ queryKey: ["favourites"], queryFn: getFavourites });
   const { data, isError, isLoading } = query;
-  const [loading, setLoading] = useState(false);
-  const [favourites, setFavourites] = useState([]);
-  const [error, setError] = useState(null);
 
-  const getFavouritessDetails = async () => {
-    try {
-      setLoading(true);
-      const res = await getFavourites();
-      const response = res.data;
-      if (response) {
-        setLoading(false);
-        setFavourites(response);
-      }
-    } catch (error) {
-      setError(getErrorMessage(error));
-      setLoading(false);
-    }
-  };
-
-  // useEffect(() => {
-  //   getFavouritessDetails();
-  // }, []);
   return { isLoading, isError, favourites: data?.data };
 };

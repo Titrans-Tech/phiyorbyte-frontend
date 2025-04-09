@@ -11,7 +11,7 @@ export const CustomLayout = ({ children }) => {
 
         <Header />
       </header>
-      {children}
+      <section className="">{children}</section>
     </main>
   );
 };

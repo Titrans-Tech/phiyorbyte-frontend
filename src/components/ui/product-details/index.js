@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@/components/breadcrumb";
+import { BreadCrumb, Breadcrumb } from "@/components/breadcrumb";
 import { ComponentLoading } from "@/components/button/componentLoading";
 import { CustomLayout } from "@/components/layout";
 import { CustomWrapper } from "@/components/layout/customWrapper";
@@ -6,30 +6,24 @@ import { ProductImagePreview } from "@/components/ui/product-details/product-ima
 import { ProductItemsDetails } from "@/components/ui/product-details/product-item-details";
 import { useFetchProductDetails } from "@/hooks/useCategoryApi";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Footer } from "../footer";
-import { addCart } from "@/service/cart";
 
 const ProductDetails = () => {
   const router = useRouter();
-  const tabs = ["Product Details", "Rating & Reviews"];
-  const [current, setCurrent] = useState(0);
-  const { loading, product, getProductsDetails } = useFetchProductDetails();
-
   const query = router.query;
 
-  useEffect(() => {
-    if (router.isReady) {
-      getProductsDetails(query?.id);
-    }
-  }, [router.isReady]);
+  const tabs = ["Product Details", "Rating & Reviews"];
+  const [current, setCurrent] = useState(0);
+  const { loading, product } = useFetchProductDetails(query?.id);
 
   return (
     <section>
       <CustomLayout>
         <CustomWrapper>
           <div className="mt-5">
-            <Breadcrumb url={router.query.id} />
+            {/* <Breadcrumb url={router.query.id} /> */}
+            <BreadCrumb product={product} />
             {loading ? (
               <ComponentLoading />
             ) : (
@@ -38,7 +32,7 @@ const ProductDetails = () => {
                   <ProductImagePreview product={product} />
                   <ProductItemsDetails product={product} />
                 </section>
-                <div className="px-5">
+                <div className="px-5 ">
                   <div className="mt-8 mb-5 flex items-center justify-around border-b">
                     {tabs.map((tab, tabIndex) => (
                       <div
@@ -70,32 +64,7 @@ const ProductDetails = () => {
                           <li className="text-black font-normal">Quantity: {product?.quantity}</li>
                         </ul>
                       </div>
-                      {/* <div className="border-b pb-3 my-2">
-                        <h4 className="text-base font-bold text-black">Key features</h4>
-                        <ul className="list-disc">
-                          <li className="text-black font-normal">Comfortable</li>
-                          <li className="text-black font-normal">&quot;Spill it&quot; tee shirt</li>
-                          <li className="text-black font-normal">Graphics</li>
-                          <li className="text-black font-normal">Nice</li>
-                        </ul>
-                      </div> */}
                     </div>
-                    {/* <div className="border-b pb-3 my-2">
-                      <h4 className="text-base font-bold text-black">Key features</h4>
-                      <ul className="list-disc">
-                        <li className="text-black font-normal">SKU: FA203MW05GE12NAFAMZ</li>
-                        <li className="text-black font-normal">Product Line: City Collection</li>
-                        <li className="text-black font-normal">Production Country: Nigeria</li>
-                        <li className="text-black font-normal">Size (L x W x H cm): 12x5</li>
-                        <li className="text-black font-normal">Weight (kg): 1</li>
-                        <li className="text-black font-normal">Certifications: Eco Friendly</li>
-                        <li className="text-black font-normal">Main Material: Cotton</li>
-                        <li>
-                          Care Label: Do not over scrub, Use gently and do not hot iron the
-                          graphics.
-                        </li>
-                      </ul>
-                    </div> */}
                   </div>
                 </div>
               </>

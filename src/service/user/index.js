@@ -12,7 +12,7 @@ export const fetchUserProfile = async (ref_no) => {
 export const fetchUserOrders = async () => {
   try {
     const response = await API.get(`/users/order/viewmyorders`);
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }

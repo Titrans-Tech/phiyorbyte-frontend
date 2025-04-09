@@ -1,35 +1,77 @@
 /* eslint-disable @next/next/no-img-element */
 import { deleteCart } from "@/service/cart";
 import { getErrorMessage, WithCommas } from "@/utils";
+import { useAuth } from "@/context/authContext";
+import { useCart } from "@/context/cartContext";
 import Image from "next/image";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
 export const ProductCartCard = ({ fav, getCartOrder }) => {
-  const [items, setItems] = useState(1);
   const [loading, setLoading] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const { updateQuantity, removeFromCart } = useCart();
 
-  const incrementCart = () => {
-    setItems((prevItems) => prevItems + 1);
-  };
-
-  const decrementCart = () => {
-    setItems((prevItems) => prevItems - 1);
-  };
-
-  const deleteCartItems = async () => {
-    try {
-      setLoading(true);
-      const res = await deleteCart(fav?.id);
-      const response = await res.data;
-      if (response) {
+  const handleIncrement = async () => {
+    if (isAuthenticated) {
+      try {
+        setLoading(true);
+        const res = await deleteCart(fav?.id);
+        const response = await res.data;
+        if (response) {
+          getCartOrder();
+        }
+      } catch (error) {
+        console.log(getErrorMessage(error));
+      } finally {
         setLoading(false);
-        getCartOrder();
       }
-    } catch (error) {
-      setLoading(false);
-      console.log(getErrorMessage(error));
+    } else {
+      // For unauthenticated users, update local storage
+      updateQuantity(fav.id, fav.quantity + 1);
+    }
+  };
+
+  const handleDecrement = async () => {
+    if (fav.quantity <= 1) return;
+
+    if (isAuthenticated) {
+      try {
+        setLoading(true);
+        const res = await deleteCart(fav?.id);
+        const response = await res.data;
+        if (response) {
+          getCartOrder();
+        }
+      } catch (error) {
+        console.log(getErrorMessage(error));
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // For unauthenticated users, update local storage
+      updateQuantity(fav.id, fav.quantity - 1);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (isAuthenticated) {
+      try {
+        setLoading(true);
+        const res = await deleteCart(fav?.id);
+        const response = await res.data;
+        if (response) {
+          getCartOrder();
+        }
+      } catch (error) {
+        console.log(getErrorMessage(error));
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // For unauthenticated users, remove from local storage
+      removeFromCart(fav.id);
     }
   };
 
@@ -46,13 +88,23 @@ export const ProductCartCard = ({ fav, getCartOrder }) => {
         </div>
       </div>
       <div className="flex items-end gap-10 justify-end flex-col">
-        <RiDeleteBin6Fill onClick={deleteCartItems} color="red" cursor="pointer" fontSize={20} />
-        <div className="bg-[#F0F0F0] flex items-center justify-around w-[80px] py-1 rounded-full px- ">
-          <button disabled={items === 1} onClick={decrementCart}>
+        <RiDeleteBin6Fill
+          onClick={handleDelete}
+          color="red"
+          cursor="pointer"
+          fontSize={20}
+          className={loading ? "opacity-50" : ""}
+        />
+        <div className="bg-[#F0F0F0] flex items-center justify-around w-[80px] py-1 rounded-full">
+          <button
+            disabled={fav.quantity <= 1 || loading}
+            onClick={handleDecrement}
+            className={loading ? "opacity-50" : ""}
+          >
             <FaMinus />
           </button>
-          <span>{items}</span>
-          <button onClick={incrementCart}>
+          <span>{fav.quantity}</span>
+          <button onClick={handleIncrement} className={loading ? "opacity-50" : ""}>
             <FaPlus />
           </button>
         </div>

@@ -13,6 +13,7 @@ import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { FaqAccordion } from "@/components/cards/accordion";
 import { Footer } from "@/components/ui/footer";
 import { useFetchMenProducts, useFetchWomenProducts } from "@/hooks/useCategoryApi";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -106,7 +107,7 @@ export default function Home() {
             <CustomWrapper>
               <div className="flex px-5 py-6 items-center justify-center flex-col">
                 <h3 className="font-semibold text-[#002400] text-4xl font-mono">Featured ‘24</h3>
-                <div>
+                <div className="text-center ">
                   - Casual - Formal - Underwear - Sportswear - Dresses - Gowns - Skirts - Swimwear
                   and Lingerie
                 </div>
@@ -167,14 +168,14 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
-              <section className="flex flex-wrap  gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="flex items-center mt-9 justify-center">
                 <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                  View All
+                  <Link href="/men">View All</Link>
                 </button>
               </div>
             </CustomWrapper>
@@ -204,14 +205,14 @@ export default function Home() {
             </section>
             <CustomWrapper>
               <>
-                <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+                <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                   {flashCategory.map((cat, catIndex) => (
                     <CategoryCard isDisabled={true} data={cat} key={catIndex} />
                   ))}
                 </section>
                 <div className="flex items-center mt-9 justify-center">
                   <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                    View All
+                    <Link href="/product"> View All</Link>
                   </button>
                 </div>
               </>
@@ -263,14 +264,14 @@ export default function Home() {
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
               <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
-              <section className="flex flex-wrap gap-12 mt-10 justify-center grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
+              <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {womenProduct?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
                 ))}
               </section>
               <div className="flex items-center mt-9 justify-center">
                 <button className="max-w-xl font-medium text-base py-2 px-8 border rounded-full">
-                  View All
+                  <Link href="/women">View all</Link>
                 </button>
               </div>
             </CustomWrapper>

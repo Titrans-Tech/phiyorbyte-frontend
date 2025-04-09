@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@/components/breadcrumb";
+import { BreadCrumb, Breadcrumb } from "@/components/breadcrumb";
 import { ComponentLoading } from "@/components/button/componentLoading";
 import { ProductCartCard } from "@/components/cards/ProductCartCard";
 import { EmptyComponent } from "@/components/emptyComponent";
@@ -7,6 +7,7 @@ import { CustomWrapper } from "@/components/layout/customWrapper";
 import { ComponentTitle } from "@/components/typography/ComponentTitle";
 import { CartSummary } from "@/components/ui/cart/cartSummary";
 import { Footer } from "@/components/ui/footer";
+import { useAuth } from "@/context/authContext";
 import { useFetchCart } from "@/hooks/useFetchCart";
 import { viewProductOrders } from "@/service/user";
 import { favData } from "@/utils/data";
@@ -15,11 +16,13 @@ import { useEffect, useState } from "react";
 const Cart = () => {
   const { cart, loading, totalAmount, getCartOrder } = useFetchCart();
 
+  const { isAuthenticated } = useAuth();
+
   return (
     <section>
       <CustomLayout>
         <CustomWrapper>
-          <Breadcrumb url="Cart" />
+          <BreadCrumb />
           <main className="mb-20 px-5 ">
             <section className="mt-5">
               <ComponentTitle title="Your Cart" />

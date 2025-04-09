@@ -11,6 +11,7 @@ import { LuUser } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { getStoredId } from "@/utils";
+import { CustomSearch } from "../customSearch";
 
 export const MobileHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,6 +87,7 @@ export const MobileHeader = () => {
                   </li>
                 ))}
               </ul>
+              <CustomSearch />
             </div>
           </div>
         )}

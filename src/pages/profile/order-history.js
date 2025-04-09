@@ -29,8 +29,8 @@ const OrderHistory = () => {
                 <ComponentLoading />
               ) : orders?.length > 0 ? (
                 <>
-                  <section className="flex items-center mt-5 justify-between ">
-                    <div className="border-b flex  gap-7 w-fit items-center">
+                  <section className="flex flex-col-reverse md:flex-row gap-3 md:items-center mt-5 justify-between ">
+                    {/* <div className="border-b flex  gap-7 w-fit items-center">
                       {tab.map((tabs, tabIndex) => (
                         <div
                           onClick={() => setCurrent(tabIndex)}
@@ -45,7 +45,7 @@ const OrderHistory = () => {
                           {tabs}
                         </div>
                       ))}
-                    </div>
+                    </div> */}
                     <div className="flex items-center gap-2">
                       <section className="bg-[#F6F6F6] h-8 w-full max-w-xs px-2 gap-2 flex items-center rounded  ">
                         <CiSearch />

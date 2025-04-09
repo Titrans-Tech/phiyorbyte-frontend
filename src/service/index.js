@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const base_url = "https://api.pdempire.co.uk/api/";
 
+// https://api.trulixx.com/
+
 export const API = axios.create({
   baseURL: base_url,
 });

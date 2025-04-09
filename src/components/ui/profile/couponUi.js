@@ -25,7 +25,7 @@ export const CouponUi = () => {
 
 export const CouponCard = ({ item }) => {
   return (
-    <div className="flex my-4 items-center border-b pb-2 justify-between">
+    <div className="md:flex my-4 items-center border-b pb-2 justify-between">
       <div className="flex items-start gap-3">
         <Image height={50} width={100} className="" src="/assets/voucher.png" alt="" />
         <div>
@@ -46,7 +46,7 @@ export const CouponCard = ({ item }) => {
       </div>
       <p
         className={`
-            font-medium text-base ${
+            font-medium md:text-left text-right text-base ${
               item.redeemStatus === "Available"
                 ? "text-[#01AB31]"
                 : item.redeemStatus === "Ended"
