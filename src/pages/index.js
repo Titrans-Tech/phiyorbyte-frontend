@@ -152,7 +152,7 @@ export default function Home() {
             className="w-full mt-10 py-4 px-4 bg-[#BACF8C]"
           >
             <CustomWrapper>
-              <div className="flex gap-4 flex-wrap items-center justify-center space-y-3 md:justify-between">
+              <div className="grid grid-cols-2 md:flex gap-4 flex-wra items-center justify-center space-y-3 md:justify-between">
                 {services.map((service, serviceIndex) => (
                   <div className="flex flex-col md:flex-row  items-center gap-2" key={serviceIndex}>
                     <img className="w-10" src={service.img} alt="" />
@@ -167,7 +167,9 @@ export default function Home() {
           </section>
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
-              <h3 className="text-4xl text-center font-normal font-mono">Categories For Men</h3>
+              <h3 className="text-2xl md:text-4xl text-center font-normal font-mono">
+                Categories For Men
+              </h3>
               <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {product?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
@@ -263,7 +265,9 @@ export default function Home() {
           </div>
           <section className="w-full bg-white py-12 ">
             <CustomWrapper>
-              <h3 className="text-4xl text-center font-normal font-mono">Categories For Women</h3>
+              <h3 className="text-2xl md:text-4xl text-center font-normal font-mono">
+                Categories For Women
+              </h3>
               <section className="grid  gap-3 px-2 md:gap-12 mt-4 md:mt-10 md:justify-center grid-cols-2 md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] items-center  ">
                 {womenProduct?.map((cat, catIndex) => (
                   <CategoryCard link="/product" data={cat} key={catIndex} />
@@ -302,11 +306,11 @@ export default function Home() {
                   className="min-h-[400px] left-0 absolute z-20 bg-[transparent] w-full"
                 ></div>
 
-                <section className="max-w-xl relative z-50">
-                  <h3 className="text-3xl font-bold text-white">
+                <section className="md:max-w-xl relative z-50">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">
                     WE MADE YOUR EVERYDAY FASHION BETTER!
                   </h3>
-                  <p className="font-normal text-lg text-white">
+                  <p className="font-normal text-base md:text-lg text-white">
                     Discover effortlessly stylish pieces designed to elevate your daily wardrobe.
                     Experience comfort and versatility in every outfit!
                   </p>
@@ -320,7 +324,7 @@ export default function Home() {
           <section className="w-full bg-white px-5 py-5">
             <CustomWrapper>
               <div className="flex items-center justify-center flex-col">
-                <h3 className="text-3xl font-medium text-center md:text-left tracking-widest ">
+                <h3 className="text-xl md:text-3xl font-medium text-center md:text-left tracking-widest ">
                   Stay Connected & Inspired
                 </h3>
                 <p className="text-base font-normal max-w-lg text-center">
@@ -339,7 +343,10 @@ export default function Home() {
           <section className="w-full bg-white px-5 md:px-10 py-8">
             <CustomWrapper>
               <div className="flex items-center justify-between">
-                <h3 className="font-medium text-4xl">OUR HAPPY CUSTOMERS</h3>
+                <h3 className="font-medium text-2xl md:text-4xl capitalize md:uppercase ">
+                  {" "}
+                  What our clients say
+                </h3>
 
                 <div className="flex items-end justify-end gap-5">
                   <FaArrowLeftLong fontSize={18} color="#000" />
